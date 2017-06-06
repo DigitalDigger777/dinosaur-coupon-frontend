@@ -1,0 +1,33 @@
+/**
+ * Created by korman on 03.06.17.
+ */
+
+import React from 'react';
+import {Link} from 'react-router-dom';
+
+export default class CouponFriendList extends React.Component {
+    render(){
+        return(
+            <div className="zan-card zan-container-content">
+
+                <div className="zan-content-header">
+                    <img className="preload-image" data-original="images/zan-images/the_loop_restaurant_logo_by_yasergrafix-d5f3q5p_PicViewer.jpg" alt="img" />
+                    <strong>ABC Restaurant</strong>
+                </div>
+                <div className="zan-container zan-red">
+                    <h4>Spent over $20 get one free coffee</h4>
+                    <b>Days left: 15</b>
+                    <em>2016.09.12-2016.12.01
+                        <Link to={'coupon/1'}>
+                            <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt="" />
+                        </Link>
+                    </em>
+                </div>
+
+                <div className="zan-action-button">
+                    <a href="coupon-send.html"><img src="images/zan-icon/send.png" alt="" width="36" height="36" /></a>
+                </div>
+            </div>
+        );
+    }
+}

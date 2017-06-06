@@ -1,0 +1,76 @@
+import Config from './components/Config';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import BodyCoupon from './components/coupon/BodyCoupon';
+import BodyStore from './components/store/BodyStore';
+import Profile from './components/user/Profile';
+import Login from './components/user/Login';
+import LoginWechat from './components/user/LoginWechat';
+import CouponDetail from './components/coupon/CouponDetail';
+import CouponFriendList from './components/coupon/CouponFriendList';
+import CouponReceivedList from './components/coupon/CouponReceivedList';
+import StoreDetail from './components/store/StoreDetail';
+
+//
+// import BodyEvent from './components/event/BodyEvent';
+// import BodyEventDetail from './components/event/detail/BodyEventDetail';
+// import CouponDetail from './components/coupon/CouponDetail';
+// import CouponRedeem from './components/coupon/CouponRedeem';
+// import Login from './components/user/Login';
+
+
+// import { Router } from 'react-router';
+import { HashRouter,Route, hashHistory } from 'react-router-dom'
+// import axios from 'axios';
+// import BodyEventDetailFriend from './components/event/detail/BodyEventDetailFriend';
+
+export default class Index extends React.Component{
+    constructor(){
+        super();
+    }
+    render(){
+
+        const userJsonStr = window.localStorage.getItem('user');
+        const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
+
+        const user      = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
+        //console.log(user);
+        if (!userJsonStr && user == null) {
+            return (
+                <LoginWechat />
+            )
+        }
+
+        if (user != null) {
+            window.localStorage.setItem('user', JSON.stringify(user));
+            window.location = '/';
+        }
+        //console.log('root');
+
+        return (
+            <HashRouter history={hashHistory}>
+                <div>
+                    <Route exact path="/coupon/coupons/list" component={BodyCoupon} />
+                    <Route exact path="/" component={BodyCoupon} />
+                    <Route exact path="/coupon/friend/list" component={BodyCoupon} />
+                    <Route exact path="/coupon/:id" component={CouponDetail} />
+
+                    <Route exact path="/stores" component={BodyStore} />
+                    <Route exact path="/store/:id" component={StoreDetail} />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/login-wechat" component={LoginWechat} />
+                    {/*<Route exact path="/event/:page" component={BodyEvent}></Route>*/}
+                    {/*<Route exact path="/coupon/:page" component={BodyCoupon}></Route>*/}
+                    {/*<Route exact path="/event/detail/:id/:tab" component={BodyEventDetail}></Route>*/}
+                    {/*<Route exact path="/event/detail-friend/:id/:tab" component={BodyEventDetailFriend}></Route>*/}
+
+                    {/*<Route path="/coupon/detail/:id" component={CouponDetail}></Route>*/}
+                    {/*<Route exact path="/coupon/redeem/:id" component={CouponRedeem}></Route>*/}
+                    {/*<Route exact path="/login" component={Login}></Route>*/}
+                </div>
+            </HashRouter>
+        )
+    }
+}
+ReactDOM.render(<Index/>,document.getElementById('page-transitions'));
