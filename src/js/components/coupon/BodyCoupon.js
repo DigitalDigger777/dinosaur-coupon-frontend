@@ -8,7 +8,6 @@ import PageLoader from '../parts/PageLoader';
 import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 
 export default class BodyCoupon extends React.Component {
 
@@ -47,9 +46,9 @@ export default class BodyCoupon extends React.Component {
                     <div id="page-content-scroll">
                         <div className="content">
                             <div className="home-tabs">
-                                <Link to={'/'} className="activate-tab-1 active-home-tab">Received</Link>
-                                <Link to={'/coupon/coupons/list'} className="activate-tab-2">Coupons</Link>
-                                <Link to={'/coupon/friend/list'} className="activate-tab-3">Friend's</Link>
+                                <Link to={'/'} className={`activate-tab-1 ${this.state.tab == 'received' ? 'active-home-tab' : ''}`}>Received</Link>
+                                <Link to={'/coupon/coupons/list'} className={`activate-tab-2 ${this.state.tab == 'coupons' ? 'active-home-tab' : ''}`}>Coupons</Link>
+                                <Link to={'/coupon/friend/list'} className={`activate-tab-3 ${this.state.tab == 'friends' ? 'active-home-tab' : ''}`}>Friend's</Link>
                                 <div className="clear"></div>
                             </div>
                         </div>

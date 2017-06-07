@@ -21,13 +21,14 @@ import StoreDetail from './components/store/StoreDetail';
 
 // import { Router } from 'react-router';
 import { HashRouter,Route, hashHistory } from 'react-router-dom'
-// import axios from 'axios';
+import axios from 'axios';
 // import BodyEventDetailFriend from './components/event/detail/BodyEventDetailFriend';
 
 export default class Index extends React.Component{
     constructor(){
         super();
     }
+
     render(){
 
         const userJsonStr = window.localStorage.getItem('user');
@@ -42,8 +43,22 @@ export default class Index extends React.Component{
         }
 
         if (user != null) {
-            window.localStorage.setItem('user', JSON.stringify(user));
-            window.location = '/';
+            let config = new Config();
+
+            axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
+                socialId: user.unionid,
+                socialDataProfile: user
+            }).then(result => {
+
+                window.localStorage.setItem('user_id', result.data.id);
+                window.localStorage.setItem('user', JSON.stringify(user));
+                window.location = '/';
+            }).catch(error => {
+                console.log(error);
+            });
+
+
+
         }
         //console.log('root');
 

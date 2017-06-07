@@ -20,7 +20,7 @@ export default class Login extends React.Component {
                             <div className="container">
                                 <div className="page-login full-bottom zan-page-login">
 
-                                    <a href="#" className="login-button button button-blue button-fullscreen">Login</a>
+                                    <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxfca7a5406897fa7b&redirect_uri=http://coupon-backend.ppcgclub.com/wechat/userinfo&response_type=code&scope=snsapi_login&state=123#wechat_redirect" className="login-button button button-blue button-fullscreen">Login</a>
                                     <div className="clear"></div>
 
                                 </div>
