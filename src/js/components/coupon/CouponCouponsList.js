@@ -21,12 +21,14 @@ export default class CouponCouponsList extends React.Component {
     componentDidMount(props){
         const config = new Config();
         const apiUrl = config.baseUrl;
+        const userId = window.localStorage.getItem('user_id');
 
-        axios.get(apiUrl + 'coupon/rest/0', {
+        axios.get(apiUrl + 'coupon/consumer-coupon/rest/0', {
             params: {
                 method: 'LIST',
                 page: 1,
-                items_on_page: 5
+                items_on_page: 5,
+                consumerId: userId
             }
         }).then(response => {
             console.log(response.data.items);

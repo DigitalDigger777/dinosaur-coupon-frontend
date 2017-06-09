@@ -8,6 +8,8 @@ import PageLoader from '../parts/PageLoader';
 import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import {Link} from 'react-router-dom';
+import Bootstrap from 'bootstrap';
+import SentCouponToFriendPopup from '../popup/SentCouponToFriendPopup';
 
 export default class BodyCoupon extends React.Component {
 
@@ -41,6 +43,7 @@ export default class BodyCoupon extends React.Component {
             <div>
                 <PageLoader/>
                 <Header/>
+                <SentCouponToFriendPopup/>
 
                 <div id="page-content" className="page-content fadeIn page-content show-containers">
                     <div id="page-content-scroll">
