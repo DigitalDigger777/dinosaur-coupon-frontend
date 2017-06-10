@@ -5,7 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+import CouponListShopperName from './parts/CouponListShopperName';
 import Config from '../Config';
 
 export default class CouponFriendList extends React.Component {
@@ -17,9 +17,14 @@ export default class CouponFriendList extends React.Component {
             items: []
         }
     }
-    SentCouponToFriend(e){
+    SentCouponToFriend(e, issuedCoupon){
         e.preventDefault();
         $('#sentCouponToFriendPopup').modal('show');
+        console.log(JSON.stringify(issuedCoupon));
+        window.localStorage.removeItem('issuedCoupon');
+        window.localStorage.setItem('issuedCoupon', JSON.stringify(issuedCoupon));
+        const key = $(e.currentTarget).closest('[key]').attr('key');
+        console.log(key);
     }
 
     componentDidMount(props){
@@ -54,13 +59,7 @@ export default class CouponFriendList extends React.Component {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-container-content">
 
-                                <div className="zan-content-header">
-                                    <img className="preload-image"
-                                         src={`${config.baseImagePath}images/logo/${item.issued_coupon.coupon.shopper.logo}`}
-                                         style={{display: 'block', height: '100%'}}
-                                         alt="img"/>
-                                    <strong>{item.issued_coupon.coupon.shopper.name}</strong>
-                                </div>
+                                <CouponListShopperName item={item}/>
                                 <div className="zan-container zan-red">
                                     <h4>{item.issued_coupon.coupon.content}</h4>
                                     <b>Days left: 15</b>
@@ -72,7 +71,7 @@ export default class CouponFriendList extends React.Component {
                                 </div>
 
                                 <div className="zan-action-button">
-                                    <a href="#" onClick={e => this.SentCouponToFriend(e)}>
+                                    <a href="#" onClick={(e, issuedCoupon) => this.SentCouponToFriend(e, item.issued_coupon)}>
                                         <img src="images/zan-icon/send.png" alt="" width="36" height="36"/>
                                     </a>
                                 </div>

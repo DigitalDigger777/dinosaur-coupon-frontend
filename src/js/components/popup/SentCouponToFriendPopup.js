@@ -11,25 +11,49 @@ export default class SentCouponToFriendPopup extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     couponId: props.couponId,
-        //     redeemStatus: props.redeemStatus
-        // };
+        this.state = {
+            toConsumerId: 0
+        };
 
         this.imSure = this.imSure.bind(this);
     }
 
     imSure() {
         const config = new Config();
-        const consumerId = window.localStorage.getItem('user_id');
-        const couponId = this.state.couponId;
+        const issuedCoupon   = JSON.parse(window.localStorage.getItem('issuedCoupon'));
+        const fromConsumerId     = window.localStorage.getItem('user_id');
+        const toConsumerId   = this.state.toConsumerId;
+        const couponId       = issuedCoupon.coupon.id;
+        const issuedCouponId = issuedCoupon.id;
 
-        axios.post(config.baseUrl + 'api/kankan/coupon/redeem', {
-            consumerId: consumerId,
-            couponId: couponId
+        const data = {
+            fromConsumerId: fromConsumerId,
+            toConsumerId: toConsumerId,
+            couponId: couponId,
+            issuedCouponId: issuedCouponId
+        };
+
+        console.log(data);
+        axios.post(config.baseUrl + 'coupon/issued/rest/0', {
+            consumerId: toConsumerId,
+            couponId: couponId,
+            issuedCouponId: issuedCouponId,
+            sourceType: 2,
+            source: JSON.stringify({
+                fromConsumerId: fromConsumerId,
+                issuedCouponId: issuedCouponId
+            })
         }).then(res => {
-            $('#redeemPopup').modal('hide');
-            this.props.changeRedeemStatus(0);
+            $('#sentCouponToFriendPopup').modal('hide');
+            window.localStorage.removeItem('issuedCoupon')
+
+            //this.props.changeRedeemStatus(0);
+        });
+    }
+
+    inputChangeHandler(e) {
+        this.setState({
+            toConsumerId: e.target.value
         });
     }
 
@@ -43,7 +67,7 @@ export default class SentCouponToFriendPopup extends React.Component {
                         </div>
                         <div className="modal-body">
                             This coupon will be sent to your friend
-                            <input type="text" placeholder="Enter friend ID" className="form-control" />
+                            <input type="text" placeholder="Enter friend ID" className="form-control" onChange={e => this.inputChangeHandler(e)}/>
                         </div>
                         <div className="modal-footer" >
                             <button type="button" className="default-btn btn btn-info" data-dismiss="modal">Go Back</button>
