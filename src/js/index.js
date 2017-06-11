@@ -72,6 +72,9 @@ export default class Index extends React.Component{
 
                     <Route exact path="/stores" component={BodyStore} />
                     <Route exact path="/store/:id" component={StoreDetail} />
+                    <Route exact path="/store/all-coupons/:id" component={StoreDetail} />
+                    <Route exact path="/store/your-coupons/:id" component={StoreDetail} />
+
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/login-wechat" component={LoginWechat} />

@@ -5,6 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import CouponListShopperName from './parts/CouponListShopperName';
 import Config from '../Config';
 
 export default class CouponCouponsList extends React.Component {
@@ -50,31 +51,25 @@ export default class CouponCouponsList extends React.Component {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-container-content">
 
-                                <div className="zan-content-header">
-                                    <img className="preload-image"
-                                         src={`${config.baseImagePath}images/logo/${item.coupon.shopper.logo}`}
-                                         style={{display: 'block', height: '100%'}}
-                                         alt="img"/>
-                                    <strong>{item.coupon.shopper.name}</strong>
-                                </div>
+                                <CouponListShopperName item={item}/>
                                 <div className="zan-container zan-red">
-                                    <h4>{item.coupon.content}</h4>
+                                    <h4>{item.issued_coupon.coupon.content}</h4>
                                     <b>Days left: 15</b>
                                     <em>{ item.startTimeFormat }-{ item.expiredTimeFormat }
-                                        <Link to={`/coupon/${item.coupon.id}`}>
+                                        <Link to={`/coupon/${item.issued_coupon.coupon.id}`}>
                                             <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>
                                         </Link>
                                     </em>
                                 </div>
 
                                 <div className="zan-action-button">
-                                    <a href="#">
-                                        <img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>
-                                    </a>
+                                    {/*<a href="#">*/}
+                                        {/*<img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>*/}
+                                    {/*</a>*/}
 
-                                    <a href="#">
-                                        <img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>
-                                    </a>
+                                    {/*<a href="#">*/}
+                                        {/*<img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>*/}
+                                    {/*</a>*/}
                                 </div>
                             </div>
                         )
