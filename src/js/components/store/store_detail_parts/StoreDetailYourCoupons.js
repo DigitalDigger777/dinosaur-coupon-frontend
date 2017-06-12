@@ -12,7 +12,8 @@ export default class StoreDetailYourCoupons extends React.Component {
         this.state = {
             shopperId: props.shopperId,
             items: [],
-            count_pages: 1
+            count_pages: 1,
+            status: 'Load...'
         };
     }
 
@@ -30,6 +31,7 @@ export default class StoreDetailYourCoupons extends React.Component {
                 items: response.data.items,
                 count_pages: response.data.count_pages
             });
+            this.setState({status: 'List empty'});
             console.log(response);
         }).catch(function(error){
             console.log(error);
@@ -62,7 +64,7 @@ export default class StoreDetailYourCoupons extends React.Component {
             );
         } else {
             return (
-                <div>Load...</div>
+                <div>{this.state.status}</div>
             );
         }
     }

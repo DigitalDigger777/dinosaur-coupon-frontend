@@ -14,7 +14,8 @@ export default class CouponCouponsList extends React.Component {
         super(props);
         this.state = {
             countPages: 1,
-            items: []
+            items: [],
+            status: 'Load...'
         }
 
     }
@@ -35,6 +36,7 @@ export default class CouponCouponsList extends React.Component {
             console.log(response.data.items);
             this.setState({countPages:response.data.count_pages});
             this.setState({items: response.data.items});
+            this.setState({status: 'List empty'});
             console.log(this.state);
         }).catch(function(error){
             console.log(error);
@@ -80,7 +82,7 @@ export default class CouponCouponsList extends React.Component {
             );
         } else {
             return(
-                <div>Load...</div>
+                <div>{this.state.status}</div>
             );
         }
     }

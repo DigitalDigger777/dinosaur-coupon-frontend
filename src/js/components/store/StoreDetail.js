@@ -18,7 +18,8 @@ export default class StoreList extends React.Component {
         this.state = {
             shopperId: props.match.params.id,
             item: null,
-            tab: /\/store\/([\w\W]+)\/[0-9]+/.exec(props.match.url)[1]
+            tab: /\/store\/([\w\W]+)\/[0-9]+/.exec(props.match.url)[1],
+            status: 'Load...'
         };
 
 
@@ -32,6 +33,7 @@ export default class StoreList extends React.Component {
             this.setState({
                 item: response.data
             });
+            this.setState({status: 'Store not found'});
         }).catch(function(error){
             console.log(error);
         });
@@ -57,10 +59,10 @@ export default class StoreList extends React.Component {
                                         <strong>{this.state.item.name}</strong>
                                         <p className="address">{this.state.item.address}</p>
                                         <div className="center-text">
-                                            <a href="#">
+                                            <a href={`tel:${this.state.item.tel}`}>
                                                 <img src="images/zan-icon/call.png" alt="" width="32" height="32"/>
                                             </a>
-                                            <a href="#">
+                                            <a href={this.state.item.site} target="_blank">
                                                 <img src="images/zan-icon/link.png" alt="" width="32" height="32"/>
                                             </a>
                                         </div>
@@ -101,7 +103,7 @@ export default class StoreList extends React.Component {
             );
         } else {
             return (
-                <div>Load...</div>
+                <div>{this.state.status}</div>
             );
         }
     }

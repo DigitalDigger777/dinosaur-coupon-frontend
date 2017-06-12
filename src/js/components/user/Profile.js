@@ -14,7 +14,8 @@ export default class Profile extends React.Component {
         super(props);
 
         this.state = {
-            profile: null
+            profile: null,
+            status: 'Load...'
         }
     }
 
@@ -31,6 +32,13 @@ export default class Profile extends React.Component {
             console.log(response.data);
             // this.setState({countPages:response.data.count_pages});
             this.setState({profile: response.data});
+            this.setState({status: 'List empty...'});
+
+            $(".preload-image").lazyload({
+                threshold : 100,
+                effect : "fadeIn",
+                container: $("#page-content-scroll")
+            });
             console.log(this.state);
         }).catch(function(error){
             console.log(error);
@@ -137,7 +145,7 @@ export default class Profile extends React.Component {
             );
         } else {
             return (
-                <div>Load...</div>
+                <div>{this.state.status}</div>
             );
         }
     }

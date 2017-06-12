@@ -5,6 +5,7 @@
 import Config from '../../Config';
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class StoreDetailAllCoupons extends React.Component {
     constructor(props){
@@ -13,7 +14,8 @@ export default class StoreDetailAllCoupons extends React.Component {
         this.state = {
             shopperId: props.shopperId,
             items: [],
-            count_pages: 1
+            count_pages: 1,
+            status: 'Load...'
         };
     }
 
@@ -32,6 +34,7 @@ export default class StoreDetailAllCoupons extends React.Component {
                 items: response.data.items,
                 count_pages: response.data.count_pages
             });
+            this.setState({status: 'List empty'});
             console.log(response);
         }).catch(function(error){
             console.log(error);
@@ -45,13 +48,13 @@ export default class StoreDetailAllCoupons extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-container-content">
-                                <a href="coupon-detail.html">
+                                <Link to={`/coupon/${item.coupon.id}`}>
                                     <div className="zan-container zan-red">
                                         <h4>{item.coupon.title}</h4>
                                         <b>Days left: 15</b>
                                         <em>{item.startTimeFormat}-{item.expiredTimeFormat}</em>
                                     </div>
-                                </a>
+                                </Link>
                                 <div className="zan-action-button">
                                     {/*<a href="#" className="show-dialog-add-coupon">*/}
                                         {/*<img src="images/zan-icon/coupon-add.png" alt="" width="28" height="28"/>*/}
@@ -64,7 +67,7 @@ export default class StoreDetailAllCoupons extends React.Component {
             );
         } else {
             return (
-                <div>Load...</div>
+                <div>{this.state.status}</div>
             );
         }
     }

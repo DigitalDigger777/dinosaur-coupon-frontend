@@ -9,7 +9,7 @@ import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 
-export default class CouponDetail extends React.Component {
+export default class CouponFriendDetail extends React.Component {
 
     constructor(props){
         super(props);
@@ -67,7 +67,7 @@ export default class CouponDetail extends React.Component {
                                             <img className="preload-image"
                                                  data-original="images/zan-images/friends-coupon.png" alt="img"
                                                  height="50" style={{margin: '0 auto'}}/>
-                                            <span>{this.state.item.title}</span>
+                                            <span>Friend's coupon</span>
                                         </div>
 
                                         <div className="zan-container zan-container-detail">

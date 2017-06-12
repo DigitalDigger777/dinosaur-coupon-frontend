@@ -30,7 +30,7 @@ export default class StoreListItem extends React.Component {
 
          return(
              <div className="zan-card zan-card-1 zan-container-content">
-                 <Link to={`store/${this.state.item.id}`}>
+                 <Link to={`store/all-coupons/${this.state.item.id}`}>
                      {logo}
 
                      <div className="zan-wrap-content">

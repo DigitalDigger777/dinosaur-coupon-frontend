@@ -10,6 +10,7 @@ import CouponDetail from './components/coupon/CouponDetail';
 import CouponFriendList from './components/coupon/CouponFriendList';
 import CouponReceivedList from './components/coupon/CouponReceivedList';
 import StoreDetail from './components/store/StoreDetail';
+import CouponFriendDetail from './components/coupon/CouponFriendDetail';
 
 //
 // import BodyEvent from './components/event/BodyEvent';
@@ -69,6 +70,7 @@ export default class Index extends React.Component{
                     <Route exact path="/" component={BodyCoupon} />
                     <Route exact path="/coupon/friend/list" component={BodyCoupon} />
                     <Route exact path="/coupon/:id" component={CouponDetail} />
+                    <Route exact path="/friend/coupon/:id" component={CouponFriendDetail} />
 
                     <Route exact path="/stores" component={BodyStore} />
                     <Route exact path="/store/:id" component={StoreDetail} />
