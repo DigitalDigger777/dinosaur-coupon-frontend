@@ -7,7 +7,7 @@ export default class Config
     constructor() {
         this._baseUrl = 'http://dev.kankan/app_dev.php/';
         this._baseImagesPath = 'http://dev.kankan/';
-        this._baseFrontUrl = 'http://dev.kankan-frontend/';
+        this._baseFrontUrl = 'http://dev.kankan-mobile/';
     }
 
     get baseUrl() {

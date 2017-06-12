@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-
+import Config from '../../Config';
 
 export default class CouponListShopperName extends React.Component {
 
@@ -24,6 +24,8 @@ export default class CouponListShopperName extends React.Component {
     }
 
     render(){
+        const config = new Config();
+
         if (this.state.item.issued_coupon.coupon.shopper.logo != "") {
             return (
 

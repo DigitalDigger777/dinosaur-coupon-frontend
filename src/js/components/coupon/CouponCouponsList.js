@@ -45,7 +45,6 @@ export default class CouponCouponsList extends React.Component {
 
     render(){
         if (this.state.items.length > 0) {
-            const config = new Config();
 
             return (
                 <div>
