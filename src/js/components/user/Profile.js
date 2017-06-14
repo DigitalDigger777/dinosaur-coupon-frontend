@@ -60,7 +60,7 @@ export default class Profile extends React.Component {
                                     <div className="page-profile-header">
                                         <div className="float-left">
                                             <a href="images/pictures/5.jpg" className="show-gallery" title="Profile Image!">
-                                                <img data-original="images/zan-images/avatar.png" className="preload-image" alt="img"/>
+                                                <img data-original={this.state.profile.socialDataProfile.headimgurl} className="preload-image" alt="img"/>
                                             </a>
                                             <div className="zan-change-button">
                                                 <a href="#">Change</a>
