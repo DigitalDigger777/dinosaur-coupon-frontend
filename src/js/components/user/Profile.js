@@ -114,7 +114,7 @@ export default class Profile extends React.Component {
                                         </div>
                                         <div>
                                             <label for="zan-phone">UnionId:</label>
-                                            <input type="text" id="unionid" defaultValue={this.state.profile.socialDataProfile.unionid} />
+                                            <input type="text" id="unionid" style={{width:'100%', maxWidth: '100%'}} defaultValue={this.state.profile.socialDataProfile.unionid} />
                                         </div>
                                         {/*<div>*/}
                                             {/*<label for="zan-post-code">*/}
