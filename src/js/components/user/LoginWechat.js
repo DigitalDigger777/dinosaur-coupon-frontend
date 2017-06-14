@@ -50,34 +50,35 @@ export default class Login extends React.Component {
         if (this.state.url) {
             return (
                 <div>
-                    <PageLoader/>
-                    <Header/>
+                    Please wait...
+                    {/*<PageLoader/>*/}
+                    {/*<Header/>*/}
 
-                    <div id="page-content" className="page-content fadeIn show-containers">
-                        <div id="page-content-scroll">
+                    {/*<div id="page-content" className="page-content fadeIn show-containers">*/}
+                        {/*<div id="page-content-scroll">*/}
 
-                            <div className="content zan-login-content">
-                                <div className="container">
-                                    <div className="page-login full-bottom zan-page-login">
-                                        Please wait...
-                                        {/*<a href={`${this.state.url}`} className="login-button button button-blue button-fullscreen">Login</a>*/}
-                                        {/*<a href={`${config.baseFrontUrl}?user=${this.state.user}`}*/}
-                                           {/*className="login-button button button-blue button-fullscreen">Mock Login</a>*/}
-                                        <div className="clear"></div>
+                            {/*<div className="content zan-login-content">*/}
+                                {/*<div className="container">*/}
+                                    {/*<div className="page-login full-bottom zan-page-login">*/}
+                                        {/**/}
+                                        {/*/!*<a href={`${this.state.url}`} className="login-button button button-blue button-fullscreen">Login</a>*!/*/}
+                                        {/*/!*<a href={`${config.baseFrontUrl}?user=${this.state.user}`}*!/*/}
+                                           {/*/!*className="login-button button button-blue button-fullscreen">Mock Login</a>*!/*/}
+                                        {/*<div className="clear"></div>*/}
+                    
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                            {/*<div className="zan-footer-text center-text">*/}
+                                {/*/!*<p>Don't have an account? <a href="sign-up-step-1.html">Sign up</a></p>*!/*/}
+                            {/*</div>*/}
+                            {/*<div className="footer footer-light">*/}
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="zan-footer-text center-text">
-                                {/*<p>Don't have an account? <a href="sign-up-step-1.html">Sign up</a></p>*/}
-                            </div>
-                            <div className="footer footer-light">
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="background"></div>
+                    {/*<div className="background"></div>*/}
                 </div>
             );
         } else {
