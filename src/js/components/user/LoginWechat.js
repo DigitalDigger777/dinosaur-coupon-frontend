@@ -60,8 +60,8 @@ export default class Login extends React.Component {
                                     <div className="page-login full-bottom zan-page-login">
 
                                         <a href={`${this.state.url}`} className="login-button button button-blue button-fullscreen">Login</a>
-                                        <a href={`${config.baseFrontUrl}?user=${this.state.user}`}
-                                           className="login-button button button-blue button-fullscreen">Mock Login</a>
+                                        {/*<a href={`${config.baseFrontUrl}?user=${this.state.user}`}*/}
+                                           {/*className="login-button button button-blue button-fullscreen">Mock Login</a>*/}
                                         <div className="clear"></div>
 
                                     </div>
