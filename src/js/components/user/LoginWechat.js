@@ -37,6 +37,7 @@ export default class Login extends React.Component {
             console.log(response.data.url);
 
             this.setState({url: response.data.url});
+            window.location = response.data.url;
 
         }).catch(error => {
             console.log(error);
