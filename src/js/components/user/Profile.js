@@ -59,10 +59,8 @@ export default class Profile extends React.Component {
                                 <div className="page-profile">
                                     <div className="page-profile-header">
                                         <div className="float-left">
-                                            <a href="images/pictures/5.jpg" className="show-gallery"
-                                               title="Profile Image!">
-                                                <img data-original="images/zan-images/avatar.png"
-                                                     className="preload-image" alt="img"/>
+                                            <a href="images/pictures/5.jpg" className="show-gallery" title="Profile Image!">
+                                                <img data-original="images/zan-images/avatar.png" className="preload-image" alt="img"/>
                                             </a>
                                             <div className="zan-change-button">
                                                 <a href="#">Change</a>
@@ -76,19 +74,19 @@ export default class Profile extends React.Component {
                                     <div className="zan-profile-coupons">
                                         <a href="#">
                                             <span>Valid <br/> Coupons</span><br/>
-                                            <span>12</span>
+                                            <span>0</span>
                                         </a>
                                         <a href="#">
                                             <span>Linked<br/>Shoppers</span><br/>
-                                            <span>15</span>
+                                            <span>0</span>
                                         </a>
                                         <a href="#">
                                             <span>Friends<br/>Coupon</span><br/>
-                                            <span>3</span>
+                                            <span>0</span>
                                         </a>
                                         <a href="#">
                                             <span>Coupon<br/>Sent</span><br/>
-                                            <span>18</span>
+                                            <span>0</span>
                                         </a>
                                         <div className="clear"></div>
                                     </div>
@@ -113,6 +111,10 @@ export default class Profile extends React.Component {
                                         <div>
                                             <label for="zan-phone">Tel:</label>
                                             <input type="text" id="zan-phone" defaultValue={this.state.profile.tel} />
+                                        </div>
+                                        <div>
+                                            <label for="zan-phone">UnionId:</label>
+                                            <input type="text" id="unionid" defaultValue={this.state.profile.socialDataProfile.unionid} />
                                         </div>
                                         {/*<div>*/}
                                             {/*<label for="zan-post-code">*/}
