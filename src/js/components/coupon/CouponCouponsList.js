@@ -11,6 +11,7 @@ import Config from '../Config';
 export default class CouponCouponsList extends React.Component {
 
     constructor(props){
+
         super(props);
         this.state = {
             countPages: 1,

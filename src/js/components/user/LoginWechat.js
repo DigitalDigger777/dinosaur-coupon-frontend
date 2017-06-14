@@ -14,7 +14,8 @@ export default class Login extends React.Component {
         super(props);
 
         this.state = {
-            user: ''
+            user: '',
+            url: null
         };
     }
 
@@ -30,41 +31,58 @@ export default class Login extends React.Component {
         }).catch(function(error){
             console.log(error);
         });
+
+        //get login url
+        axios.get(apiUrl + 'wechat/build-get-code-url').then(response => {
+            console.log(response.data.url);
+
+            this.setState({url: response.data.url});
+
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     render(){
         const config = new Config();
 
-        return(
-            <div>
-                <PageLoader/>
-                <Header/>
+        if (this.state.url) {
+            return (
+                <div>
+                    <PageLoader/>
+                    <Header/>
 
-                <div id="page-content" className="page-content">
-                    <div id="page-content-scroll">
+                    <div id="page-content" className="page-content fadeIn show-containers">
+                        <div id="page-content-scroll">
 
-                        <div className="content zan-login-content">
-                            <div className="container">
-                                <div className="page-login full-bottom zan-page-login">
+                            <div className="content zan-login-content">
+                                <div className="container">
+                                    <div className="page-login full-bottom zan-page-login">
 
-                                    <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxfca7a5406897fa7b&redirect_uri=http://coupon-backend.ppcgclub.com/wechat/userinfo&response_type=code&scope=snsapi_login&state=123#wechat_redirect" className="login-button button button-blue button-fullscreen">Login</a>
-                                    <a href={`${config.baseFrontUrl}?user=${this.state.user}`} className="login-button button button-blue button-fullscreen">Mock Login</a>
-                                    <div className="clear"></div>
+                                        <a href={`${this.state.url}`} className="login-button button button-blue button-fullscreen">Login</a>
+                                        <a href={`${config.baseFrontUrl}?user=${this.state.user}`}
+                                           className="login-button button button-blue button-fullscreen">Mock Login</a>
+                                        <div className="clear"></div>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="zan-footer-text center-text">
-                            {/*<p>Don't have an account? <a href="sign-up-step-1.html">Sign up</a></p>*/}
-                        </div>
-                        <div className="footer footer-light">
+                            <div className="zan-footer-text center-text">
+                                {/*<p>Don't have an account? <a href="sign-up-step-1.html">Sign up</a></p>*/}
+                            </div>
+                            <div className="footer footer-light">
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="background"></div>
-            </div>
-        );
+                    <div className="background"></div>
+                </div>
+            );
+        } else {
+            return (
+                <div>Load...</div>
+            );
+        }
     }
 }
