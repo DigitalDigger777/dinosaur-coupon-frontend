@@ -71,6 +71,7 @@ export default class Index extends React.Component{
                     <Route exact path="/coupon/friend/list" component={BodyCoupon} />
                     <Route exact path="/coupon/:id" component={CouponDetail} />
                     <Route exact path="/friend/coupon/:id" component={CouponFriendDetail} />
+                    <Route exact path="/friend/coupon/:id/:issuedCouponId/:ownerUserId" component={CouponFriendDetail} />
 
                     <Route exact path="/stores" component={BodyStore} />
                     <Route exact path="/store/:id" component={StoreDetail} />

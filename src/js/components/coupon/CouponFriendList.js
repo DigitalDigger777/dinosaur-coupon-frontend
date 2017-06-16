@@ -55,6 +55,8 @@ export default class CouponFriendList extends React.Component {
 
         if (this.state.items.length > 0) {
             const config = new Config();
+            const ownerUserId = window.localStorage.getItem('user_id');
+            console.log(ownerUserId);
             return (
                 <div>
                     {
@@ -66,7 +68,7 @@ export default class CouponFriendList extends React.Component {
                                     <h4>{item.issued_coupon.coupon.content}</h4>
                                     <b>Days left: 15</b>
                                     <em>{item.startTimeFormat}-{item.expiredTimeFormat}
-                                        <Link to={`/friend/coupon/${item.issued_coupon.coupon.id}`}>
+                                        <Link to={`/friend/coupon/${item.issued_coupon.coupon.id}/${item.issued_coupon.id}/${ownerUserId}`}>
                                             <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>
                                         </Link>
                                     </em>

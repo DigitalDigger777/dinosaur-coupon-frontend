@@ -13,10 +13,48 @@ export default class CouponFriendDetail extends React.Component {
 
     constructor(props){
         super(props);
+        console.log(props);
+
         this.state = {
             couponId: props.match.params.id,
-            status: 'Load...'
+            issuedCouponId: props.match.params.issuedCouponId,
+            ownerUserId: props.match.params.ownerUserId,
+            status: 'Load...',
         }
+    }
+
+    accept(e){
+        e.preventDefault();
+        const config = new Config();
+
+        const fromConsumerId     = this.state.ownerUserId;
+        const toConsumerId       = window.localStorage.getItem('user_id');
+        const couponId           = this.state.couponId;
+        const issuedCouponId     = this.state.issuedCouponId;
+
+        const data = {
+            fromConsumerId: fromConsumerId,
+            toConsumerId: toConsumerId,
+            couponId: couponId,
+            issuedCouponId: issuedCouponId
+        };
+
+        console.log(data);
+        axios.post(config.baseUrl + 'coupon/issued/rest/0', {
+            consumerId: toConsumerId,
+            couponId: couponId,
+            issuedCouponId: issuedCouponId,
+            sourceType: 2,
+            source: JSON.stringify({
+                fromConsumerId: fromConsumerId,
+                issuedCouponId: issuedCouponId
+            })
+        }).then(res => {
+            $('#sentCouponToFriendPopup').modal('show');
+            //window.localStorage.removeItem('issuedCoupon')
+
+            //this.props.changeRedeemStatus(0);
+        });
     }
 
     componentDidMount(props){
@@ -82,6 +120,9 @@ export default class CouponFriendDetail extends React.Component {
                                                      {/*width="100"/>*/}
                                             {/*</div>*/}
                                             {/*<div className="zan-coupon-number">172891</div>*/}
+                                        </div>
+                                        <div>
+                                            <a href="#" onClick={e  => this.accept(e)} className="login-button button button-blue button-fullscreen">Accept</a>
                                         </div>
                                         <div className="zan-content-footer">
                                             <div className="center-text">
