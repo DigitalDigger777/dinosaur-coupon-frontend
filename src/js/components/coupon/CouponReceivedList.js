@@ -28,10 +28,10 @@ export default class CouponReceivedList extends React.Component {
         const userJsonStr = window.localStorage.getItem('user');
         const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
 
-        const user      = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
+        this.state.user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
 
 
-        if (user != null) {
+        if (this.state.user != null) {
 
 
 
