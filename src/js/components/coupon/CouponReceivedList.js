@@ -74,7 +74,12 @@ export default class CouponReceivedList extends React.Component {
                             <div className="decoration"></div>
                             <div className="zan-block">
                                 <span className="vertical-align-middle">Received from:</span>
-                                <img className="quote-image" src="images/zan-images/Circle_Staats_Terry-01.png" alt=""/>
+                                {
+                                    JSON.parse(item.issued_coupon.source).headimgurl && (
+                                        <img className="quote-image" src={ JSON.parse(item.issued_coupon.source).headimgurl } alt=""/>
+                                    )
+                                }
+
                             </div>
                         </div>
                     )

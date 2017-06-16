@@ -28,6 +28,8 @@ export default class CouponFriendDetail extends React.Component {
         e.preventDefault();
         const config = new Config();
 
+        const user               = JSON.parse(window.localStorage.getItem('user'));
+
         const fromConsumerId     = this.state.ownerUserId;
         const toConsumerId       = window.localStorage.getItem('user_id');
         const couponId           = this.state.couponId;
@@ -40,7 +42,7 @@ export default class CouponFriendDetail extends React.Component {
             issuedCouponId: issuedCouponId
         };
 
-        console.log(data);
+        console.log(user);
         axios.post(config.baseUrl + 'coupon/issued/rest/0', {
             consumerId: toConsumerId,
             couponId: couponId,
@@ -48,7 +50,9 @@ export default class CouponFriendDetail extends React.Component {
             sourceType: 2,
             source: JSON.stringify({
                 fromConsumerId: fromConsumerId,
-                issuedCouponId: issuedCouponId
+                issuedCouponId: issuedCouponId,
+                headimgurl: user.headimgurl,
+                nickname: user.nickname
             })
         }).then(res => {
             $('#acceptCouponPopup').modal('show');
