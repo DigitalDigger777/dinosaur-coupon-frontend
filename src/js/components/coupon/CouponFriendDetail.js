@@ -8,6 +8,7 @@ import PageLoader from '../parts/PageLoader';
 import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
+import AcceptCouponPopup from '../popup/AcceptCouponPopup';
 
 export default class CouponFriendDetail extends React.Component {
 
@@ -50,7 +51,7 @@ export default class CouponFriendDetail extends React.Component {
                 issuedCouponId: issuedCouponId
             })
         }).then(res => {
-            $('#sentCouponToFriendPopup').modal('show');
+            $('#acceptCouponPopup').modal('show');
             //window.localStorage.removeItem('issuedCoupon')
 
             //this.props.changeRedeemStatus(0);
@@ -60,7 +61,6 @@ export default class CouponFriendDetail extends React.Component {
     componentDidMount(props){
         const config = new Config();
         const apiUrl = config.baseUrl;
-
 
         axios.get(apiUrl + 'coupon/rest/' + this.state.couponId).then(response => {
             console.log(response.data);
@@ -86,6 +86,7 @@ export default class CouponFriendDetail extends React.Component {
                 <div>
                     <PageLoader/>
                     <Header/>
+                    <AcceptCouponPopup/>
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
                         <div id="page-content-scroll">
