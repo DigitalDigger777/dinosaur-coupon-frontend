@@ -28,6 +28,26 @@ import axios from 'axios';
 export default class Index extends React.Component{
     constructor(){
         super();
+        this.state = {
+            url: ''
+        };
+    }
+
+    componentDidMount()
+    {
+        const config = new Config();
+        const apiUrl = config.baseUrl;
+
+        //get login url
+        axios.get(apiUrl + 'wechat/build-get-code-url').then(response => {
+            console.log(response.data.url);
+
+            this.setState({url: response.data.url});
+            //window.location = response.data.url;
+
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     render(){
@@ -38,9 +58,9 @@ export default class Index extends React.Component{
         const user      = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
         //console.log(user);
         if (!userJsonStr && user == null) {
-            return (
-                <LoginWechat />
-            )
+            if (this.state.url != '') {
+                window.location = this.state.url;
+            }
         }
 
         if (user != null) {
