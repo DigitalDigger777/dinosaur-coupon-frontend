@@ -1,4 +1,4 @@
-import Config from './components/Config';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BodyCoupon from './components/coupon/BodyCoupon';
@@ -7,59 +7,18 @@ import Profile from './components/user/Profile';
 import Login from './components/user/Login';
 import LoginWechat from './components/user/LoginWechat';
 import CouponDetail from './components/coupon/CouponDetail';
-import CouponFriendList from './components/coupon/CouponFriendList';
-import CouponReceivedList from './components/coupon/CouponReceivedList';
 import StoreDetail from './components/store/StoreDetail';
 import CouponFriendDetail from './components/coupon/CouponFriendDetail';
-
-//
-// import BodyEvent from './components/event/BodyEvent';
-// import BodyEventDetail from './components/event/detail/BodyEventDetail';
-// import CouponDetail from './components/coupon/CouponDetail';
-// import CouponRedeem from './components/coupon/CouponRedeem';
-// import Login from './components/user/Login';
-
-
-// import { Router } from 'react-router';
 import { HashRouter,Route, hashHistory } from 'react-router-dom'
-import axios from 'axios';
-// import BodyEventDetailFriend from './components/event/detail/BodyEventDetailFriend';
 
 export default class Index extends React.Component{
     constructor(){
         super();
-        this.state = {
-            url: ''
-        };
-    }
-
-    componentDidMount()
-    {
 
     }
 
     render(){
 
-        const userJsonStr = window.localStorage.getItem('user');
-        const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
-
-        const user      = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
-        //console.log(user);
-        // if (!userJsonStr && user == null) {
-        //     if (this.state.url != '') {
-        //         window.location = this.state.url;
-        //     }
-        // }
-
-        if (user != null) {
-            let config = new Config();
-
-
-
-
-
-        }
-        //console.log('root');
 
         return (
             <HashRouter history={hashHistory}>

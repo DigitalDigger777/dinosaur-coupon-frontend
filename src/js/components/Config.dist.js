@@ -8,6 +8,10 @@ export default class Config
         this._baseUrl = 'http://dev.kankan/app_dev.php/';
         this._baseImagesPath = 'http://dev.kankan/';
         this._baseFrontUrl = 'http://dev.kankan-mobile/';
+        this._weChatConfig = {
+            appid:'wx9d75b312364c1703',
+            redirectUri: 'http://coupon.ppcgclub.com/auth.html'
+        }
     }
 
     get baseUrl() {
@@ -20,5 +24,32 @@ export default class Config
 
     get baseFrontUrl() {
         return this._baseFrontUrl;
+    }
+
+    get weChatConfig() {
+        return this._weChatConfig;
+    }
+
+    buildAuthUrl() {
+        let url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
+        let params = {
+            appid:           this._weChatConfig.appid,
+            redirect_uri:    this._weChatConfig.redirectUri,
+            response_type:  'code',
+            scope:          'snsapi_login',
+            state:          10
+        };
+
+        let paramsStr = '';
+
+        for (let param in params) {
+            if (paramsStr == '') {
+                paramsStr += param + '=' + params[param];
+            } else {
+                paramsStr += '&' + param + '=' + params[param];
+            }
+        }
+
+        return url + '?' + paramsStr + '#wechat_redirect';
     }
 }

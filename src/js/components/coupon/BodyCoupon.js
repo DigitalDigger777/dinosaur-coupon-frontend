@@ -66,17 +66,21 @@ export default class BodyCoupon extends React.Component {
         } else {
 
             console.log(this.state.user);
+
+            window.location = config.buildAuthUrl();
             //get login url
-            axios.get(config.baseUrl + 'wechat/build-get-code-url').then(response => {
-                //console.log(response.data.url);
-
-                this.setState({url: response.data.url});
-                console.log(this.state);
-                window.location = response.data.url;
-
-            }).catch(error => {
-                console.log(error);
-            });
+            // axios.get(config.baseUrl + 'wechat/build-get-code-url').then(response => {
+            //
+            //
+            //     this.setState({url: response.data.url});
+            //     console.log(this.state);
+            //     //window.location = response.data.url;
+            //     const u = config.buildAuthUrl();
+            //     console.log(u);
+            //
+            // }).catch(error => {
+            //     console.log(error);
+            // });
         }
     }
 
