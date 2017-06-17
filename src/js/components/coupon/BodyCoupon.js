@@ -40,8 +40,7 @@ export default class BodyCoupon extends React.Component {
         console.log(this.state);
     }
 
-
-    componentDidMount(props){
+    componentWillMount() {
         const config = new Config();
 
         this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
@@ -50,38 +49,27 @@ export default class BodyCoupon extends React.Component {
         const user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
 
 
-        if (this.state.user != null) {
-
-            axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
-                socialId: this.state.user.unionid,
-                socialDataProfile: this.state.user
-            }).then(result => {
-
-                window.localStorage.setItem('user_id', result.data.id);
-                window.localStorage.setItem('user', JSON.stringify(this.state.user));
-
-            }).catch(error => {
-                console.log(error);
-            });
-        } else {
-
-            console.log(this.state.user);
+        if (this.state.user == null) {
 
             window.location = config.buildAuthUrl();
-            //get login url
-            // axios.get(config.baseUrl + 'wechat/build-get-code-url').then(response => {
-            //
-            //
-            //     this.setState({url: response.data.url});
-            //     console.log(this.state);
-            //     //window.location = response.data.url;
-            //     const u = config.buildAuthUrl();
-            //     console.log(u);
-            //
-            // }).catch(error => {
-            //     console.log(error);
-            // });
+
         }
+    }
+
+    componentDidMount(props){
+        const config = new Config();
+
+        axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
+            socialId: this.state.user.unionid,
+            socialDataProfile: this.state.user
+        }).then(result => {
+
+            window.localStorage.setItem('user_id', result.data.id);
+            window.localStorage.setItem('user', JSON.stringify(this.state.user));
+
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     render(){
