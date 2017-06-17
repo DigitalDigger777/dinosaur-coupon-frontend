@@ -35,27 +35,32 @@ export default class BodyCoupon extends React.Component {
         this.state = {
             tab: tab,
             user: null,
+            authUser: null,
             status: 'Component will mount'
         };
 
+        const config = new Config();
+        const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
+        this.state.authUser = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
+        this.state.user     = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
+
+        if (this.state.authUser == null && this.state.user == null) {
+            this.state.status = 'Build url';
+            window.location = config.buildAuthUrl();
+        }
         console.log(this.state);
     }
 
     componentWillMount() {
         const config = new Config();
 
-        const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
-        const user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
-        this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
+
 
         console.log(user);
 
-        if (user == null && this.state.user == null) {
-            this.state.status = 'Build url';
-            window.location = config.buildAuthUrl();
-        }
 
-        if (user != null) {
+
+        if (this.state.authUser != null) {
 
             ///console.log(user);
 
