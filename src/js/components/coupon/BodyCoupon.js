@@ -43,11 +43,26 @@ export default class BodyCoupon extends React.Component {
     componentWillMount() {
         const config = new Config();
 
-        this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
         const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
-
         const user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
 
+        if (user == null) {
+            this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
+        } else {
+
+            //set here
+            axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
+                socialId: this.state.user.unionid,
+                socialDataProfile: this.state.user
+            }).then(result => {
+
+                window.localStorage.setItem('user_id', result.data.id);
+                window.localStorage.setItem('user', JSON.stringify(this.state.user));
+
+            }).catch(error => {
+                console.log(error);
+            });
+        }
 
         if (this.state.user == null) {
 
@@ -58,18 +73,6 @@ export default class BodyCoupon extends React.Component {
 
     componentDidMount(props){
         const config = new Config();
-
-        axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
-            socialId: this.state.user.unionid,
-            socialDataProfile: this.state.user
-        }).then(result => {
-
-            window.localStorage.setItem('user_id', result.data.id);
-            window.localStorage.setItem('user', JSON.stringify(this.state.user));
-
-        }).catch(error => {
-            console.log(error);
-        });
     }
 
     render(){
