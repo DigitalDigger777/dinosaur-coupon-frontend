@@ -9,6 +9,7 @@ import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 import AcceptCouponPopup from '../popup/AcceptCouponPopup';
+import wx from 'weixin-jsapi';
 
 export default class CouponFriendDetail extends React.Component {
 
@@ -21,6 +22,7 @@ export default class CouponFriendDetail extends React.Component {
             issuedCouponId: props.match.params.issuedCouponId,
             ownerUserId: props.match.params.ownerUserId,
             status: 'Load...',
+            wxReady: false
         }
     }
 
@@ -56,9 +58,41 @@ export default class CouponFriendDetail extends React.Component {
             })
         }).then(res => {
             $('#acceptCouponPopup').modal('show');
-            //window.localStorage.removeItem('issuedCoupon')
+        });
+    }
 
-            //this.props.changeRedeemStatus(0);
+    componentWillMount() {
+        const config = new Config();
+
+        wx.config({
+            debug: true, // Enables debugging mode. Return values of all APIs called will be shown on the client. To view the sent parameters, open the log view of developer tools on a computer browser. The parameter information can only be printed when viewed from a computer.
+            appId: config.weChatConfig.oa_appid, // Required, unique identifier of the official account
+            timestamp: '1497740493', // Required, timestamp for the generated signature
+            nonceStr: '914STrojLMcXrtuc', // Required, random string for the generated signature
+            signature: config.weChatConfig.signature, // Required, signature. See Appendix 1.
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ] // Required, list of JS APIs to be used. See Appendix 2 for the list of all JS APIs
+        });
+
+        wx.ready(() => {
+            this.state.wxReady = true;
+
+            wx.onMenuShareAppMessage({
+                title: 'Test', // Sharing title
+                desc: 'test test', // Sharing description
+                link: 'http://coupon.ppcgcloub.com', // Sharing link
+                imgUrl: '', // Sharing image URL
+                type: 'link', // Sharing type, such as “music”, “video “ or “link”. It is “link” by default.
+                dataUrl: null, // The data URL should be provided for items of type “music” or “video”. It is null by default.
+                success: function () {
+                    // Callback function executed after a user confirms sharing
+                },
+                cancel: function () {
+                    // Callback function executed after a user cancels sharing
+                }
+            });
         });
     }
 
