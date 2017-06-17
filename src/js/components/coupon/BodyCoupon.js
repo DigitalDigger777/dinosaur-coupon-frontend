@@ -34,7 +34,8 @@ export default class BodyCoupon extends React.Component {
 
         this.state = {
             tab: tab,
-            user: null
+            user: null,
+            status: 'Component will mount'
         };
 
         console.log(this.state);
@@ -50,8 +51,8 @@ export default class BodyCoupon extends React.Component {
         console.log(user);
 
         if (user == null && this.state.user == null) {
+            this.state.status = 'Build url';
             window.location = config.buildAuthUrl();
-            // this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
         }
 
         if (user != null) {
@@ -59,7 +60,7 @@ export default class BodyCoupon extends React.Component {
             ///console.log(user);
 
             this.state.user = user;
-
+            this.state.status = 'Get user';
             //set here
             axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
                 socialId: user.unionid,
@@ -69,6 +70,7 @@ export default class BodyCoupon extends React.Component {
                 window.localStorage.setItem('user_id', result.data.id);
                 window.localStorage.setItem('user', JSON.stringify(user));
 
+                this.state.status = 'Authorized user';
             }).catch(error => {
                 console.log(error);
             });
@@ -121,7 +123,7 @@ export default class BodyCoupon extends React.Component {
             );
         } else {
             return (
-                <div></div>
+                <div>{this.state.status}</div>
             );
         }
     }
