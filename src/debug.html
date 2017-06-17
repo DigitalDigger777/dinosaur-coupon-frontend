@@ -26,6 +26,11 @@
             for (var win in window) {
                 $('#app').append('<div>' + win + '</div>');
             }
+
+            $('#app').append('<div><h4>__wxjs_js_wkwebview</h4></div>');
+            for (var wxjs in window.__wxjs_js_wkwebview) {
+                $('#app').append('<div>' + wxjs + '</div>');
+            }
         });
     })(jQuery);
 </script>
