@@ -25,116 +25,79 @@ export default class CouponReceivedList extends React.Component {
         const config = new Config();
         const apiUrl = config.baseUrl;
 
-        const userJsonStr = window.localStorage.getItem('user');
-        const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
-
-        this.state.user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
+        const userId = window.localStorage.getItem('user_id');
 
 
-        if (this.state.user != null) {
+        axios.get(apiUrl + 'coupon/consumer-received/rest/0', {
+            params: {
+                method: 'LIST',
+                page: 1,
+                items_on_page: 5,
+                consumerId: userId
+            }
+        }).then(response => {
+            console.log(response.data.items);
+            this.setState({countPages: response.data.count_pages});
+            this.setState({items: response.data.items});
+            this.setState({status: 'List empty'});
+            console.log(this.state);
+        }).catch(function (error) {
+            console.log(error);
+        });
 
-
-
-            axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
-                socialId: user.unionid,
-                socialDataProfile: user
-            }).then(result => {
-
-                window.localStorage.setItem('user_id', result.data.id);
-                window.localStorage.setItem('user', JSON.stringify(user));
-
-                const userId = result.data.id;
-
-                axios.get(apiUrl + 'coupon/consumer-received/rest/0', {
-                    params: {
-                        method: 'LIST',
-                        page: 1,
-                        items_on_page: 5,
-                        consumerId: userId
-                    }
-                }).then(response => {
-                    console.log(response.data.items);
-                    this.setState({countPages: response.data.count_pages});
-                    this.setState({items: response.data.items});
-                    this.setState({status: 'List empty'});
-                    console.log(this.state);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-
-            }).catch(error => {
-                console.log(error);
-            });
-        } else {
-
-            //get login url
-            axios.get(apiUrl + 'wechat/build-get-code-url').then(response => {
-                //console.log(response.data.url);
-
-                this.setState({url: response.data.url});
-                window.location = response.data.url;
-
-            }).catch(error => {
-                console.log(error);
-            });
-        }
     }
 
     render(){
-        if (this.state.user == null) {
-            if (this.state.items.length > 0) {
-                const config = new Config();
 
-                return (
-                    <div>
-                        {
-                            this.state.items.map((item, index) =>
-                                <div key={index} className="zan-card zan-container-content">
-                                    <CouponListShopperName item={item}/>
-                                    <div className="zan-container zan-red">
-                                        <h4>{item.issued_coupon.coupon.content}</h4>
-                                        <b>Days left: 15</b>
-                                        <em>{ item.startTimeFormat }-{ item.expiredTimeFormat }
-                                            <Link to={`/coupon/${item.issued_coupon.coupon.id}`}>
-                                                <img className="footer-menu-icon" src="images/zan-icon/info-white.png"
-                                                     width="20" height="20" alt=""/>
-                                            </Link>
-                                        </em>
-                                    </div>
-                                    <div className="zan-action-button">
-                                        {/*<a href="coupon-alert-setting.html">*/}
-                                        {/*<img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>*/}
-                                        {/*</a>*/}
+        if (this.state.items.length > 0) {
 
-                                        {/*<a href="#">*/}
-                                        {/*<img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>*/}
-                                        {/*</a>*/}
-                                    </div>
-                                    <div className="decoration"></div>
-                                    <div className="zan-block">
-                                        <span className="vertical-align-middle">Received from:</span>
-                                        {
-                                            JSON.parse(item.issued_coupon.source).headimgurl && (
-                                                <img className="quote-image"
-                                                     src={ JSON.parse(item.issued_coupon.source).headimgurl } alt=""/>
-                                            )
-                                        }
-
-                                    </div>
+            return (
+                <div>
+                    {
+                        this.state.items.map((item, index) =>
+                            <div key={index} className="zan-card zan-container-content">
+                                <CouponListShopperName item={item}/>
+                                <div className="zan-container zan-red">
+                                    <h4>{item.issued_coupon.coupon.content}</h4>
+                                    <b>Days left: 15</b>
+                                    <em>{ item.startTimeFormat }-{ item.expiredTimeFormat }
+                                        <Link to={`/coupon/${item.issued_coupon.coupon.id}`}>
+                                            <img className="footer-menu-icon" src="images/zan-icon/info-white.png"
+                                                 width="20" height="20" alt=""/>
+                                        </Link>
+                                    </em>
                                 </div>
-                            )
-                        }
-                    </div>
-                );
-            } else {
-                return (
-                    <div>{this.state.status}</div>
-                );
-            }
+                                <div className="zan-action-button">
+                                    {/*<a href="coupon-alert-setting.html">*/}
+                                    {/*<img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>*/}
+                                    {/*</a>*/}
+
+                                    {/*<a href="#">*/}
+                                    {/*<img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>*/}
+                                    {/*</a>*/}
+                                </div>
+                                <div className="decoration"></div>
+                                <div className="zan-block">
+                                    <span className="vertical-align-middle">Received from:</span>
+                                    {
+                                        JSON.parse(item.issued_coupon.source).headimgurl && (
+                                            <img className="quote-image"
+                                                 src={ JSON.parse(item.issued_coupon.source).headimgurl } alt=""/>
+                                        )
+                                    }
+
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+            );
+
         } else {
             return (
-                <div></div>
+                <div>{this.state.status}</div>
             );
         }
+
     }
 }
