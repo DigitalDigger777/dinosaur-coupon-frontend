@@ -62,38 +62,38 @@ export default class CouponFriendDetail extends React.Component {
     }
 
     componentWillMount() {
-        const config = new Config();
+        // const config = new Config();
 
-        wx.config({
-            debug: true, // Enables debugging mode. Return values of all APIs called will be shown on the client. To view the sent parameters, open the log view of developer tools on a computer browser. The parameter information can only be printed when viewed from a computer.
-            appId: config.weChatConfig.oa_appid, // Required, unique identifier of the official account
-            timestamp: '1497742499', // Required, timestamp for the generated signature
-            nonceStr: 'qMmvgVTJFAB0wkUt', // Required, random string for the generated signature
-            signature: config.weChatConfig.signature, // Required, signature. See Appendix 1.
-            jsApiList: [
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage'
-            ] // Required, list of JS APIs to be used. See Appendix 2 for the list of all JS APIs
-        });
-
-        wx.ready(() => {
-            this.state.wxReady = true;
-
-            wx.onMenuShareAppMessage({
-                title: 'Test', // Sharing title
-                desc: 'test test', // Sharing description
-                link: 'http://coupon.ppcgcloub.com', // Sharing link
-                imgUrl: '', // Sharing image URL
-                type: 'link', // Sharing type, such as “music”, “video “ or “link”. It is “link” by default.
-                dataUrl: null, // The data URL should be provided for items of type “music” or “video”. It is null by default.
-                success: function () {
-                    // Callback function executed after a user confirms sharing
-                },
-                cancel: function () {
-                    // Callback function executed after a user cancels sharing
-                }
-            });
-        });
+        // wx.config({
+        //     debug: true, // Enables debugging mode. Return values of all APIs called will be shown on the client. To view the sent parameters, open the log view of developer tools on a computer browser. The parameter information can only be printed when viewed from a computer.
+        //     appId: config.weChatConfig.oa_appid, // Required, unique identifier of the official account
+        //     timestamp: '1497742499', // Required, timestamp for the generated signature
+        //     nonceStr: 'qMmvgVTJFAB0wkUt', // Required, random string for the generated signature
+        //     signature: config.weChatConfig.signature, // Required, signature. See Appendix 1.
+        //     jsApiList: [
+        //         'onMenuShareTimeline',
+        //         'onMenuShareAppMessage'
+        //     ] // Required, list of JS APIs to be used. See Appendix 2 for the list of all JS APIs
+        // });
+        //
+        // wx.ready(() => {
+        //     this.state.wxReady = true;
+        //
+        //     wx.onMenuShareAppMessage({
+        //         title: 'Test', // Sharing title
+        //         desc: 'test test', // Sharing description
+        //         link: 'http://coupon.ppcgcloub.com', // Sharing link
+        //         imgUrl: '', // Sharing image URL
+        //         type: 'link', // Sharing type, such as “music”, “video “ or “link”. It is “link” by default.
+        //         dataUrl: null, // The data URL should be provided for items of type “music” or “video”. It is null by default.
+        //         success: function () {
+        //             // Callback function executed after a user confirms sharing
+        //         },
+        //         cancel: function () {
+        //             // Callback function executed after a user cancels sharing
+        //         }
+        //     });
+        // });
     }
 
     componentDidMount(props){
