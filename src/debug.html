@@ -28,7 +28,7 @@
             }
 
             $('#app').append('<div><h4>__wxjs_js_wkwebview</h4></div>');
-            for (var wxjs in window.__wxjs_js_wkwebview) {
+            for (var wxjs in window.__wxjs_js_wkwebview.__proto__) {
                 $('#app').append('<div>' + wxjs + '</div>');
             }
 
