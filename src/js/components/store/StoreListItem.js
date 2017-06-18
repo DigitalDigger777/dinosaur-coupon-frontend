@@ -30,7 +30,6 @@ export default class StoreListItem extends React.Component {
                           alt="img"
                           style={{display: 'block'}}/>;
 
-         console.log(this.state.item.logo);
          if (this.state.item.logo) {
 
              logo = <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.logo}`}

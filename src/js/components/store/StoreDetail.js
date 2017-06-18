@@ -34,12 +34,20 @@ export default class StoreList extends React.Component {
                 item: response.data
             });
             this.setState({status: 'Store not found'});
+            $(".preload-image").lazyload({
+                threshold : 100,
+                effect : "fadeIn",
+                container: $("#page-content-scroll")
+            });
         }).catch(function(error){
             console.log(error);
         });
+
+
     }
 
     render(){
+        const config = new Config();
 
         if (this.state.item) {
             return (
@@ -52,9 +60,13 @@ export default class StoreList extends React.Component {
 
                             <div className="content">
                                 <div className="zan-card zan-card-1 zan-container-content">
-                                    <img className="preload-image"
-                                         data-original="images/zan-images/the_loop_restaurant_logo_by_yasergrafix-d5f3q5p_PicViewer.jpg"
-                                         alt="img" src="images/pictures/1t.jpg" style={{display: 'block'}}/>
+                                    {this.state.item.logo && (
+                                        <img className="preload-image"
+                                             data-original={`${config.baseImagePath}images/logo/${this.state.item.logo}`}
+                                             alt="img" style={{display: 'block'}}/>
+                                    )}
+
+
                                     <div className="zan-wrap-content center-text">
                                         <strong>{this.state.item.name}</strong>
                                         <p className="address">{this.state.item.address}</p>
