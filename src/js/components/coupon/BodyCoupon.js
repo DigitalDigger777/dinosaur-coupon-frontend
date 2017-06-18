@@ -51,7 +51,7 @@ export default class BodyCoupon extends React.Component {
         console.log(user);
 
         if (user == null && this.state.user == null) {
-            this.state.status = 'Build url';
+            this.state.status = '';
             window.location = config.buildAuthUrl();
         }
 

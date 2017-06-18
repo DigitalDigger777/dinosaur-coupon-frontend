@@ -105,13 +105,14 @@ export default class CouponFriendDetail extends React.Component {
             this.setState({item:response.data[0]});
             this.setState({expiredTime: response.data.expiredTimeFormat});
             this.setState({startTime: response.data.startTimeFormat});
+            this.setState({daysLeft: response.data.daysLeft});
 
             $(".preload-image").lazyload({
                 threshold : 100,
                 effect : "fadeIn",
                 container: $("#page-content-scroll")
             });
-            this.setState({status: 'Coupon not found'});
+            // this.setState({status: 'Coupon not found'});
             console.log(this.state);
         }).catch(function(error){
             console.log(error);
@@ -149,8 +150,8 @@ export default class CouponFriendDetail extends React.Component {
 
                                         <div className="zan-container zan-container-detail">
                                             <h2>{ this.state.item.content }</h2>
-                                            <b>Days left: 15</b><br/>
-                                            <em>{this.state.startTime}-{this.state.expiredTime}</em>
+                                            <b>Days left: {this.state.daysLeft}</b><br/>
+                                            <em>{this.state.startTime} - {this.state.expiredTime}</em>
                                         </div>
                                         <div className="center-text">
                                             {/*<div className="zan-qr-code">*/}

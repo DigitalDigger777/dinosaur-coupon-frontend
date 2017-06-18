@@ -19,8 +19,9 @@ export default class StoreDetailYourCoupons extends React.Component {
 
     componentDidMount(props) {
         const config = new Config();
-        console.log('your coupons');
-        axios.get(config.baseUrl + 'coupon/shopper-your-coupon/rest/' + this.state.shopperId, {
+        const consumerId = window.localStorage.getItem('user_id');
+
+        axios.get(config.baseUrl + 'coupon/shopper-your-coupon/rest/' + this.state.shopperId + '/' + consumerId, {
             params: {
                 method: 'LIST',
                 page: 1,
@@ -47,9 +48,9 @@ export default class StoreDetailYourCoupons extends React.Component {
                             <div key={index} className="zan-card zan-container-content">
                                 <a href="coupon-detail.html">
                                     <div className="zan-container zan-red">
-                                        <h4>{item.coupon.title}</h4>
-                                        <b>Days left: 15</b>
-                                        <em>{item.startTimeFormat}-{item.expiredTimeFormat}</em>
+                                        <h4>{item.issued_coupon.coupon.title}</h4>
+                                        <b>Days left: {item.daysLeft} </b>
+                                        <em>{item.startTimeFormat} - {item.expiredTimeFormat}</em>
                                     </div>
                                 </a>
                                 <div className="zan-action-button">

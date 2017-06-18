@@ -29,6 +29,7 @@ export default class CouponDetail extends React.Component {
             this.setState({item:response.data[0]});
             this.setState({expiredTime: response.data.expiredTimeFormat});
             this.setState({startTime: response.data.startTimeFormat});
+            this.setState({daysLeft: response.data.daysLeft});
 
             $(".preload-image").lazyload({
                 threshold : 100,
@@ -72,7 +73,7 @@ export default class CouponDetail extends React.Component {
 
                                         <div className="zan-container zan-container-detail">
                                             <h2>{ this.state.item.content }</h2>
-                                            <b>Days left: 15</b><br/>
+                                            <b>Days left: {this.state.daysLeft}</b><br/>
                                             <em>{this.state.startTime}-{this.state.expiredTime}</em>
                                         </div>
                                         <div className="center-text">

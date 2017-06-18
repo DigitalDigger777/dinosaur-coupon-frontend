@@ -66,8 +66,8 @@ export default class CouponFriendList extends React.Component {
                                 <CouponListShopperName item={item}/>
                                 <div className="zan-container zan-red">
                                     <h4>{item.issued_coupon.coupon.content}</h4>
-                                    <b>Days left: 15</b>
-                                    <em>{item.startTimeFormat}-{item.expiredTimeFormat}
+                                    <b>Days left: {item.daysLeft}</b>
+                                    <em>{item.startTimeFormat} - {item.expiredTimeFormat}
                                         <Link to={`/friend/coupon/${item.issued_coupon.coupon.id}/${item.issued_coupon.id}/${ownerUserId}`}>
                                             <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>
                                         </Link>
