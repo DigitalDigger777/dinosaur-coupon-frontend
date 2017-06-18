@@ -16,16 +16,26 @@ export default class StoreListItem extends React.Component {
         console.log(props);
     }
 
+    componentDidMount() {
+        $(".preload-image").lazyload({
+            threshold : 100,
+            effect : "fadeIn",
+            container: $("#page-content-scroll")
+        });
+    }
+
     render(){
          const config = new Config();
          let logo = <img className="preload-image" data-original="images/zan-images/shop-logo.gif"
                           alt="img"
-                          src="images/pictures/1t.jpg" style={{display: 'block'}}/>;
+                          style={{display: 'block'}}/>;
+
+         console.log(this.state.item.logo);
          if (this.state.item.logo) {
 
              logo = <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.logo}`}
                                alt="img"
-                               src="images/pictures/1t.jpg" style={{display: 'block'}}/>;
+                               style={{display: 'block'}}/>;
          }
 
          return(
