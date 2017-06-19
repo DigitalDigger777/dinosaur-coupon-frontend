@@ -79,7 +79,7 @@ export default class StoreList extends React.Component {
                                             </a>
                                         </div>
                                         <div>
-                                            <div className="float-left">Total Coupon <span>0</span></div>
+                                            <div className="float-left">Total Coupon <span>{this.state.item.countCoupons}</span></div>
                                             <div className="float-left">Your Coupon <span>0</span></div>
                                         </div>
                                         <div className="clear"></div>

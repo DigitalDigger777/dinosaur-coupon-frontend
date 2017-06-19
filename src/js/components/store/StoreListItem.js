@@ -51,7 +51,7 @@ export default class StoreListItem extends React.Component {
                                       width="24"
                                       height="24" alt=""/>
                              </i>
-                             <span className="qty">5</span>
+                             <span className="qty">{this.state.item.countCoupons}</span>
                              <i className="fa fa-chevron-right" aria-hidden="true"></i>
                          </p>
                      </div>
