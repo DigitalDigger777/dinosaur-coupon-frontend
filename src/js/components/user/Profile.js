@@ -62,9 +62,9 @@ export default class Profile extends React.Component {
                                             <a href="images/pictures/5.jpg" className="show-gallery" title="Profile Image!">
                                                 <img data-original={this.state.profile.socialDataProfile.headimgurl} className="preload-image" alt="img"/>
                                             </a>
-                                            <div className="zan-change-button">
-                                                <a href="#">Change</a>
-                                            </div>
+                                            {/*<div className="zan-change-button">*/}
+                                                {/*<a href="#">Change</a>*/}
+                                            {/*</div>*/}
                                         </div>
                                         <div className="float-left">
                                             <h4>{this.state.profile.socialDataProfile.nickname}</h4>
@@ -115,6 +115,10 @@ export default class Profile extends React.Component {
                                         <div>
                                             <label for="zan-phone">UnionId:</label>
                                             <input type="text" id="unionid" style={{width:'100%', maxWidth: '100%'}} defaultValue={this.state.profile.socialDataProfile.unionid} />
+                                        </div>
+                                        <div>
+                                            <label for="zan-phone">ID:</label>
+                                            <input type="text" id="id" style={{width:'100%', maxWidth: '100%'}} defaultValue={this.state.profile.id} />
                                         </div>
                                         {/*<div>*/}
                                             {/*<label for="zan-post-code">*/}

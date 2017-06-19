@@ -21,6 +21,7 @@ export default class CouponFriendDetail extends React.Component {
             couponId: props.match.params.id,
             issuedCouponId: props.match.params.issuedCouponId,
             ownerUserId: props.match.params.ownerUserId,
+            userId: window.localStorage.getItem('user_id'),
             status: 'Load...',
             wxReady: false
         }
@@ -161,9 +162,12 @@ export default class CouponFriendDetail extends React.Component {
                                             {/*</div>*/}
                                             {/*<div className="zan-coupon-number">172891</div>*/}
                                         </div>
-                                        <div>
-                                            <a href="#" onClick={e  => this.accept(e)} className="login-button button button-blue button-fullscreen">Accept</a>
-                                        </div>
+                                        { this.state.userId != this.state.ownerUserId && (
+                                            <div>
+                                                <a href="#" onClick={e  => this.accept(e)} className="login-button button button-blue button-fullscreen">Accept</a>
+                                            </div>
+                                        )}
+
                                         <div className="zan-content-footer">
                                             <div className="center-text">
                                                 Offer expires December 4, 2016. Offer not valid on Value Deals menu
