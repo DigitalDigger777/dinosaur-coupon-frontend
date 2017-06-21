@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BodyCoupon from './components/coupon/BodyCoupon';
 import BodyStore from './components/store/BodyStore';
+import BodyMessage from './components/message/BodyMessage';
+
 import Profile from './components/user/Profile';
 import Login from './components/user/Login';
 import LoginWechat from './components/user/LoginWechat';
@@ -38,6 +40,8 @@ export default class Index extends React.Component{
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/login-wechat" component={LoginWechat} />
+
+                    <Route exact path="/messages" component={BodyMessage} />
                     {/*<Route exact path="/event/:page" component={BodyEvent}></Route>*/}
                     {/*<Route exact path="/coupon/:page" component={BodyCoupon}></Route>*/}
                     {/*<Route exact path="/event/detail/:id/:tab" component={BodyEventDetail}></Route>*/}

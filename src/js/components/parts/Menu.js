@@ -12,7 +12,8 @@ export default class Menu extends React.Component {
             <div className="footer-menu footer-menu-light">
                 <Link to="/"><i className="fa zan-coupon"></i>Coupons</Link>
                 <Link to="/stores"><i className="fa zan-coupon"></i>Stores</Link>
-                <Link to="/profile"><i className="fa zan-coupon"></i>Profile</Link>
+                <Link to="/messages"><i className="fa zan-coupon"></i>Messages</Link>
+                {/*<Link to="/profile"><i className="fa zan-coupon"></i>Profile</Link>*/}
 
                 {/*<a href="main.html" className="zan-active" ><i className="fa zan-coupon"></i>Coupons</a>*/}
                 {/*<a href="stores.html" ><i className="fa zan-store"></i>Stores</a>*/}

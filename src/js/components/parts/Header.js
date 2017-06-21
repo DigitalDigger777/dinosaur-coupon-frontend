@@ -10,7 +10,7 @@ export default class Header extends React.Component {
         return (
             <div className="header header-light">
 
-                <a href="#" className="header-logo"></a>
+                {/*<a href="#" className="header-logo"></a>*/}
 
             </div>
 
