@@ -93,7 +93,7 @@ export default class CouponCouponsList extends React.Component {
                                     <h4>{item.issued_coupon.coupon.content}</h4>
                                     <b>Days left: {item.daysLeft }</b>
                                     <em>{ item.startTimeFormat } - { item.expiredTimeFormat }
-                                        <Link to={`/coupon/${item.issued_coupon.coupon.id}`}>
+                                        <Link to={`/coupon/${item.issued_coupon.id}`}>
                                             <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>
                                         </Link>
                                     </em>
