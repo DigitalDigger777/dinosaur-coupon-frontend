@@ -4,6 +4,8 @@
 
 import React from 'react';
 import { Redirect } from 'react-router';
+import axios from 'axios';
+import Config from '../Config';
 
 export default class RedeemCouponPopup extends React.Component {
 
@@ -11,10 +13,12 @@ export default class RedeemCouponPopup extends React.Component {
         super(props);
 
         this.state = {
-            redirect: false
+            redirect: false,
+            issuedCouponId: props.issuedCouponId
         }
 
         this.redirect = this.redirect.bind(this);
+        this.imSure = this.imSure.bind(this);
     }
 
     redirect() {
@@ -22,7 +26,15 @@ export default class RedeemCouponPopup extends React.Component {
     }
 
     imSure() {
-
+        const config = new Config();
+        // const issuedCouponId = $(e.currentTarget).attr('data-redeem-issued-id');
+        axios.put(config.baseUrl + 'coupon/issued-coupon-redeem/rest/' + this.state.issuedCouponId)
+            .then(response => {
+                //console.log(response);
+                $('#redeemCouponPopup').modal('hide');
+            }).catch(error => {
+            console.log(error);
+        });
     }
 
     render() {
