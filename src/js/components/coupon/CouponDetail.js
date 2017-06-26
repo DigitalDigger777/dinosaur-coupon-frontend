@@ -8,6 +8,8 @@ import PageLoader from '../parts/PageLoader';
 import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
+import RedeemCouponPopup from '../popup/RedeemCouponPopup';
+//import $ from 'jquery';
 
 export default class CouponDetail extends React.Component {
 
@@ -16,7 +18,8 @@ export default class CouponDetail extends React.Component {
         this.state = {
             couponId: props.match.params.id,
             status: 'Load...'
-        }
+        };
+        this.redeem = this.redeem.bind(this);
     }
 
     componentDidMount(props){
@@ -43,12 +46,19 @@ export default class CouponDetail extends React.Component {
         });
     }
 
+    redeem() {
+        $('#redeemCouponPopup').modal('show');
+    }
+
     render(){
         if (this.state.item) {
+            const config = new Config();
+
             return (
                 <div>
                     <PageLoader/>
                     <Header/>
+                    <RedeemCouponPopup issuedCouponId={this.state.item.id} />
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
                         <div id="page-content-scroll">
@@ -79,7 +89,7 @@ export default class CouponDetail extends React.Component {
                                         <div className="center-text">
                                             <div className="zan-qr-code">
                                                 <img className="preload-image"
-                                                     data-original="images/zan-images/qr-code.png" alt="img"
+                                                     data-original={config.baseUrl+`qrcode/${this.state.item.code}.png`} alt="img"
                                                      width="100"/>
                                             </div>
                                             <div className="zan-coupon-number">#{this.state.item.code}</div>
@@ -93,6 +103,12 @@ export default class CouponDetail extends React.Component {
                                             </div>
                                         </div>
                                     </div>
+                                    {!this.state.item.isRedeemed && (
+                                        <div style={{textAlign:'center', padding: '20px'}}>
+                                            <button className="btn btn-info" onClick={ this.redeem }>Redeem</button>
+                                            <p>This button is only for machant  use!</p>
+                                        </div>
+                                    )}
 
                                 </div>
                             </div>
