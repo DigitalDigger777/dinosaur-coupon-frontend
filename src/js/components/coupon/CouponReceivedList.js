@@ -17,7 +17,9 @@ export default class CouponReceivedList extends React.Component {
             countPages: 1,
             items: [],
             status: 'Load...',
-            user: null
+            user: null,
+            page: props.page,
+            lastPage: false
         }
     }
 
@@ -31,7 +33,7 @@ export default class CouponReceivedList extends React.Component {
         axios.get(apiUrl + 'coupon/consumer-received/rest/0', {
             params: {
                 method: 'LIST',
-                page: 1,
+                page: this.state.page,
                 items_on_page: 5,
                 consumerId: userId
             }
@@ -45,6 +47,39 @@ export default class CouponReceivedList extends React.Component {
             console.log(error);
         });
 
+    }
+
+    componentWillReceiveProps(props){
+        const config = new Config();
+        const apiUrl = config.baseUrl;
+        const userId = window.localStorage.getItem('user_id');
+
+        axios.get(apiUrl + 'coupon/consumer-received/rest/0', {
+            params: {
+                method: 'LIST',
+                page: props.page,
+                items_on_page: 5,
+                consumerId: userId
+            }
+        }).then(response => {
+
+            if (response.data.items.length > 0 && !this.state.lastPage) {
+                console.log(response.data.items);
+
+                response.data.items.map(item => {
+                    this.state.items.push(item);
+                });
+
+                this.setState({countPages: response.data.count_pages});
+                //this.setState({items: response.data.items});
+                this.setState({status: 'List empty'});
+                console.log(this.state);
+            } else {
+                this.setState({lastPage:true});
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     render(){
