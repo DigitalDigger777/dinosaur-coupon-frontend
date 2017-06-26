@@ -110,6 +110,12 @@ export default class CouponDetail extends React.Component {
                                         </div>
                                     )}
 
+                                    {this.state.item.isRedeemed && (
+                                        <div style={{textAlign:'center', padding: '20px'}}>
+                                            <p>This coupon is redeemed</p>
+                                        </div>
+                                    )}
+
                                 </div>
                             </div>
 
