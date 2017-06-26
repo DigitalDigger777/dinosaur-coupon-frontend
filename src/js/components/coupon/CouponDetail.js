@@ -24,7 +24,7 @@ export default class CouponDetail extends React.Component {
         const apiUrl = config.baseUrl;
 
 
-        axios.get(apiUrl + 'coupon/rest/' + this.state.couponId).then(response => {
+        axios.get(apiUrl + 'coupon/issued/rest/' + this.state.couponId).then(response => {
             console.log(response.data);
             this.setState({item:response.data[0]});
             this.setState({expiredTime: response.data.expiredTimeFormat});
@@ -59,30 +59,30 @@ export default class CouponDetail extends React.Component {
                                         <h2>
                                             <img className="preload-image" data-original="images/zan-images/u150.png"
                                                  alt="img" width="40"/>
-                                            { this.state.item.shopper.name }
+                                            { this.state.item.coupon.shopper.name }
                                         </h2>
-                                        <h1 className="zan-red">{ this.state.item.title }</h1>
+                                        <h1 className="zan-red">{ this.state.item.coupon.title }</h1>
                                     </div>
                                     <div className="zan-content">
                                         <div className="zan-title-coupon">
                                             <img className="preload-image"
                                                  data-original="images/zan-images/friends-coupon.png" alt="img"
                                                  height="50" style={{margin: '0 auto'}}/>
-                                            <span>{this.state.item.title}</span>
+                                            <span>{this.state.item.coupon.title}</span>
                                         </div>
 
                                         <div className="zan-container zan-container-detail">
-                                            <h2>{ this.state.item.content }</h2>
+                                            <h2>{ this.state.item.coupon.content }</h2>
                                             <b>Days left: {this.state.daysLeft}</b><br/>
                                             <em>{this.state.startTime}-{this.state.expiredTime}</em>
                                         </div>
                                         <div className="center-text">
-                                            {/*<div className="zan-qr-code">*/}
-                                                {/*<img className="preload-image"*/}
-                                                     {/*data-original="images/zan-images/qr-code.png" alt="img"*/}
-                                                     {/*width="100"/>*/}
-                                            {/*</div>*/}
-                                            {/*<div className="zan-coupon-number">172891</div>*/}
+                                            <div className="zan-qr-code">
+                                                <img className="preload-image"
+                                                     data-original="images/zan-images/qr-code.png" alt="img"
+                                                     width="100"/>
+                                            </div>
+                                            <div className="zan-coupon-number">#{this.state.item.code}</div>
                                         </div>
                                         <div className="zan-content-footer">
                                             <div className="center-text">
