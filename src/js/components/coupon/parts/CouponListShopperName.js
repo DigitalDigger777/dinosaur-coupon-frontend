@@ -29,23 +29,13 @@ export default class CouponListShopperName extends React.Component {
         if (this.state.item.issued_coupon.coupon.shopper.logo != "") {
             return (
 
-                <div className="zan-content-header">
-                    <img className="preload-image"
-                         data-original={`${config.baseImagePath}images/logo/${this.state.item.issued_coupon.coupon.shopper.logo}`}
-                         style={{display: 'block', height: '100%'}}
-                         alt="img"/>
-                    <strong>{this.state.item.issued_coupon.coupon.shopper.name}</strong>
-                </div>
+                    <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.issued_coupon.coupon.shopper.logo}`} alt="img"/>
+
             );
         } else {
             return (
-                <div className="zan-content-header">
-                    <img className="preload-image"
-                         data-original={`images/zan-images/u150.png`}
-                         style={{display: 'block', width: '80px'}}
-                         alt="img" />
-                    <strong>{this.state.item.issued_coupon.coupon.shopper.name}</strong>
-                </div>
+                    <img className="preload-image" data-original={`images/zan-images/u150.png`} alt="img" />
+
             );
         }
     }
