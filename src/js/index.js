@@ -25,7 +25,7 @@ export default class Index extends React.Component{
         return (
             <HashRouter history={hashHistory}>
                 <div>
-                    <Route exact path="/coupon/received/list" component={BodyCoupon} />
+                    {/*<Route exact path="/coupon/received/list" component={BodyCoupon} />*/}
                     <Route exact path="/" component={BodyCoupon} />
                     <Route exact path="/coupon/friend/list" component={BodyCoupon} />
                     <Route exact path="/coupon/:id" component={CouponDetail} />

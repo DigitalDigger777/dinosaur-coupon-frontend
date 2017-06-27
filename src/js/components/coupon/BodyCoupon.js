@@ -27,10 +27,10 @@ export default class BodyCoupon extends React.Component {
         if (props.location.pathname == '/') {
             tab = 'coupons';
         }
-
-        if (props.location.pathname == '/coupon/received/list') {
-            tab = 'received';
-        }
+        //
+        // if (props.location.pathname == '/coupon/received/list') {
+        //     tab = 'received';
+        // }
 
         this.state = {
             tab: tab,
@@ -93,8 +93,8 @@ export default class BodyCoupon extends React.Component {
                         <div id="page-content-scroll">
                             <div className="content">
                                 <div className="home-tabs">
-                                    <Link to={'/coupon/received/list'}
-                                          className={`activate-tab-1 ${this.state.tab == 'received' ? 'active-home-tab' : ''}`}>Received</Link>
+                                    {/*<Link to={'/coupon/received/list'}*/}
+                                          {/*className={`activate-tab-1 ${this.state.tab == 'received' ? 'active-home-tab' : ''}`}>Received</Link>*/}
                                     <Link to={'/'}
                                           className={`activate-tab-2 ${this.state.tab == 'coupons' ? 'active-home-tab' : ''}`}>Coupons</Link>
                                     <Link to={'/coupon/friend/list'}
