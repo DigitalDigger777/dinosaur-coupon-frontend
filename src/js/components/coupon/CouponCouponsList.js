@@ -93,16 +93,16 @@ export default class CouponCouponsList extends React.Component {
                                     <div className="zan-wrap-content">
                                         <strong>{item.issued_coupon.coupon.shopper.name}</strong>
                                         <p>{item.issued_coupon.coupon.title}</p>
-                                        <p>
+                                        <div>
                                             {/*<i className="fa">*/}
                                                 {/*<img className="footer-menu-icon" src="images/zan-icon/coupon.png" width="24" height="24" alt=""/>*/}
                                             {/*</i>*/}
                                             <span className="qty">{ item.startTimeFormat } - { item.expiredTimeFormat }</span>
-                                            <div style={{width: '50px', float: 'right'}}>
+                                            <p style={{width: '50px', float: 'right'}}>
                                                 详情
                                                 <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
-                                            </div>
-                                        </p>
+                                            </p>
+                                        </div>
                                     </div>
                                 </Link>
                                 {/*<div key={index} className="zan-card zan-container-content">*/}
@@ -129,7 +129,6 @@ export default class CouponCouponsList extends React.Component {
                                 {/*</div>*/}
                                 {/*</div>*/}
                             </div>
-
                         )
 
                     }
