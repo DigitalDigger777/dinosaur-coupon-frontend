@@ -105,9 +105,9 @@ export default class BodyCoupon extends React.Component {
 
 
                             <div className="content" id="tab-1">
-                                <div className="zan-thumb-layout">
+
                                     <CouponList tab={this.state.tab}/>
-                                </div>
+
                             </div>
 
 
