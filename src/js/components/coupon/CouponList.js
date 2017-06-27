@@ -37,11 +37,11 @@ export default class CouponList extends React.Component {
     }
 
     render(){
-        if (this.state.tab == 'received') {
-            return(
-                <CouponReceivedList page={this.state.page} />
-            )
-        }
+        // if (this.state.tab == 'received') {
+        //     return(
+        //         <CouponReceivedList page={this.state.page} />
+        //     )
+        // }
 
         if (this.state.tab == 'coupons') {
             return(
