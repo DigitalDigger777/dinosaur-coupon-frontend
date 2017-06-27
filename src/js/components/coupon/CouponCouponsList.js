@@ -86,29 +86,50 @@ export default class CouponCouponsList extends React.Component {
                 <div>
                     {
                         this.state.items.map((item, index) =>
-                            <div key={index} className="zan-card zan-container-content">
-
+                            <div key={index} className="zan-card zan-card-1 zan-container-content">
+                                <a href="#">
                                 <CouponListShopperName item={item}/>
-                                <div className="zan-container zan-red">
-                                    <h4>{item.issued_coupon.coupon.content}</h4>
-                                    <b>Days left: {item.daysLeft }</b>
-                                    <em>{ item.startTimeFormat } - { item.expiredTimeFormat }
-                                        <Link to={`/coupon/${item.issued_coupon.id}`}>
-                                            <img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>
-                                        </Link>
-                                    </em>
-                                </div>
 
-                                <div className="zan-action-button">
-                                    {/*<a href="#">*/}
-                                        {/*<img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>*/}
-                                    {/*</a>*/}
+                                    <div className="zan-wrap-content">
+                                        <strong>{item.issued_coupon.coupon.shopper.name}</strong>
+                                        <p>{item.issued_coupon.coupon.title}</p>
+                                        <p>
+                                            {/*<i className="fa">*/}
+                                                {/*<img className="footer-menu-icon" src="images/zan-icon/coupon.png" width="24" height="24" alt=""/>*/}
+                                            {/*</i>*/}
+                                            <span className="qty">{ item.startTimeFormat } - { item.expiredTimeFormat }</span>
+                                            <div style={{width: '50px', float: 'right'}}>
+                                                详情
+                                                <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </a>
+                                {/*<div key={index} className="zan-card zan-container-content">*/}
 
-                                    {/*<a href="#">*/}
-                                        {/*<img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>*/}
-                                    {/*</a>*/}
-                                </div>
+                                {/*<CouponListShopperName item={item}/>*/}
+                                {/*<div className="zan-container zan-red">*/}
+                                {/*<h4>{item.issued_coupon.coupon.content}</h4>*/}
+                                {/*<b>Days left: {item.daysLeft }</b>*/}
+                                {/*<em>{ item.startTimeFormat } - { item.expiredTimeFormat }*/}
+                                {/*<Link to={`/coupon/${item.issued_coupon.id}`}>*/}
+                                {/*<img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>*/}
+                                {/*</Link>*/}
+                                {/*</em>*/}
+                                {/*</div>*/}
+
+                                {/*<div className="zan-action-button">*/}
+                                {/*/!*<a href="#">*!/*/}
+                                {/*/!*<img src="images/zan-icon/alert.png" alt="" width="36" height="36"/>*!/*/}
+                                {/*/!*</a>*!/*/}
+
+                                {/*/!*<a href="#">*!/*/}
+                                {/*/!*<img src="images/zan-icon/add-to-apple-wallet-logo.png" alt="" height="36"/>*!/*/}
+                                {/*/!*</a>*!/*/}
+                                {/*</div>*/}
+                                {/*</div>*/}
                             </div>
+
                         )
 
                     }
