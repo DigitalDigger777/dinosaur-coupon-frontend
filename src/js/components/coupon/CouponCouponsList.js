@@ -87,8 +87,8 @@ export default class CouponCouponsList extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-card-1 zan-container-content">
-                                <a href="#">
-                                <CouponListShopperName item={item}/>
+                                <Link to={`/coupon/${item.issued_coupon.id}`}>
+                                    <CouponListShopperName item={item}/>
 
                                     <div className="zan-wrap-content">
                                         <strong>{item.issued_coupon.coupon.shopper.name}</strong>
@@ -104,7 +104,7 @@ export default class CouponCouponsList extends React.Component {
                                             </div>
                                         </p>
                                     </div>
-                                </a>
+                                </Link>
                                 {/*<div key={index} className="zan-card zan-container-content">*/}
 
                                 {/*<CouponListShopperName item={item}/>*/}
