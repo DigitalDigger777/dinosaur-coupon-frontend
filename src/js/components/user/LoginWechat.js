@@ -4,7 +4,7 @@
 
 import React from 'react';
 import PageLoader from '../parts/PageLoader';
-import Header from '../parts/Header';
+// import Header from '../parts/Header';
 import Config from '../Config';
 import axios from 'axios';
 

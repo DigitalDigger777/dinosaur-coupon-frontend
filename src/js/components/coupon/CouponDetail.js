@@ -5,7 +5,7 @@
 import React from 'react';
 import axios from 'axios';
 import PageLoader from '../parts/PageLoader';
-import Header from '../parts/Header';
+// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 import RedeemCouponPopup from '../popup/RedeemCouponPopup';
@@ -57,7 +57,7 @@ export default class CouponDetail extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    <Header/>
+                    {/*<Header/>*/}
                     <RedeemCouponPopup issuedCouponId={this.state.item.id} />
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">

@@ -5,7 +5,7 @@
 import React from 'react';
 import StoreList from './StoreList';
 import PageLoader from '../parts/PageLoader';
-import Header from '../parts/Header';
+// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import axios from 'axios';
 import $ from 'jquery';
@@ -42,7 +42,7 @@ export default class BodyStore extends React.Component {
         return(
             <div>
                 <PageLoader/>
-                <Header/>
+                {/*<Header/>*/}
 
                 <div id="page-content" className="page-content fadeIn page-content show-containers">
                     <div id="page-content-scroll">

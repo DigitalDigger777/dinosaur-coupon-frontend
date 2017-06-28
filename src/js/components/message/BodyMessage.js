@@ -4,7 +4,7 @@
 
 import React from 'react';
 import PageLoader from '../parts/PageLoader';
-import Header from '../parts/Header';
+// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import {Link} from 'react-router-dom';
 import Bootstrap from 'bootstrap';
@@ -35,7 +35,7 @@ export default class BodyMessage extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    <Header/>
+                    {/*<Header/>*/}
                     <SentCouponToFriendPopup/>
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import PageLoader from '../parts/PageLoader';
-import Header from '../parts/Header';
+// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import axios from 'axios';
 import Config from '../Config';
@@ -51,7 +51,7 @@ export default class Profile extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    <Header/>
+                    {/*<Header/>*/}
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
                         <div id="page-content-scroll">
