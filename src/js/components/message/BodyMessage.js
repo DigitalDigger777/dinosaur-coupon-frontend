@@ -11,6 +11,7 @@ import Bootstrap from 'bootstrap';
 import SentCouponToFriendPopup from '../popup/SentCouponToFriendPopup';
 import Config from '../Config';
 import axios from 'axios';
+import MessageList from './MessageList';
 
 export default class BodyMessage extends React.Component {
 
@@ -42,42 +43,7 @@ export default class BodyMessage extends React.Component {
                         <div id="page-content-scroll">
 
                             <div className="zan-list-messages">
-                                <a className="zan-contact-title" href="#">
-                                    <img src="images/pictures/1t.jpg" alt="img" />
-                                    <div className="zan-message-content">
-                                        <strong>Zan Rewards</strong><br />
-                                        <em>Your friend Luca accept your coupon</em>
-                                    </div>
-                                    <div className="zan-message-details">
-                                        <span className="zan-time-ago">1h ago</span>
-                                    </div>
-                                </a>
-                                <div className="decoration"></div>
-                                <a className="zan-contact-title" href="#">
-                                    <img src="images/pictures/1t.jpg" alt="img" />
-                                    <div className="zan-message-content">
-                                        <strong>Zan Rewards</strong><br />
-                                        <em>Your friend Luca accept your coupon</em>
-                                    </div>
-                                    <div className="zan-message-details">
-                                        <span className="zan-time-ago">2h ago</span>
-                                    </div>
-                                </a>
-                                <div className="decoration"></div>
-                                <a className="zan-contact-title" href="#">
-                                    <img src="images/pictures/1t.jpg" alt="img" />
-                                    <div className="zan-message-content">
-                                        <strong>Zan Rewards</strong><br />
-                                        <em>Buy one get one free from LE Cheture expiered in 3 days Use it before it gone away</em>
-                                    </div>
-                                    <div className="zan-message-details">
-                                        <i className="fa fa-chevron-right"></i>
-                                        <span className="zan-time-ago">4h ago</span>
-                                    </div>
-
-                                </a>
-                                <div className="decoration no-visibility"></div>
-
+                                <MessageList page={1}/>
                             </div>
 
                             <div className="footer footer-light"></div>
