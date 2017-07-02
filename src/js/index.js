@@ -11,6 +11,8 @@ import LoginWechat from './components/user/LoginWechat';
 import CouponDetail from './components/coupon/CouponDetail';
 import StoreDetail from './components/store/StoreDetail';
 import CouponFriendDetail from './components/coupon/CouponFriendDetail';
+import CouponScanDetail from './components/coupon/CouponScanDetail';
+
 import { HashRouter,Route, hashHistory } from 'react-router-dom'
 
 export default class Index extends React.Component{
@@ -29,6 +31,7 @@ export default class Index extends React.Component{
                     <Route exact path="/" component={BodyCoupon} />
                     <Route exact path="/coupon/friend/list" component={BodyCoupon} />
                     <Route exact path="/coupon/:id" component={CouponDetail} />
+                    <Route exact path="/coupon/scan/:source_type/:id" component={CouponScanDetail} />
                     {/*<Route exact path="/friend/coupon/:id" component={CouponFriendDetail} />*/}
                     <Route exact path="/friend/coupon/:id/:issuedCouponId/:ownerUserId" component={CouponFriendDetail} />
 

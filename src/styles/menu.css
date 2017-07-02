@@ -2082,7 +2082,7 @@ html, body {
 
 .footer-menu a:hover{
     background-color:#74bcf7;
-    color:#FFFFFF!important;
+    color:#FFFFFF;
     height:60px;
 }
 
@@ -2454,6 +2454,10 @@ html, body {
 
 .footer-menu .zan-coupon {
     background-image: url(../images/zan-icon/coupon-sprite.png);
+}
+
+.footer-menu .zan-coupon {
+    background: url(../images/zan-icon/coupon-sprite.png);
 }
 
 .footer-menu .zan-store {
