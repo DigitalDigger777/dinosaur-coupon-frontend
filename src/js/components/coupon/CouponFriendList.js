@@ -99,12 +99,10 @@ export default class CouponFriendList extends React.Component {
                                     <CouponListShopperName item={item}/>
 
                                     <div className="zan-wrap-content">
-                                        <strong>{item.issued_coupon.coupon.shopper.name} <span className="label label-success" style={{marginLeft: '237px'}}>Friend's coupon</span></strong>
+                                        <strong>{item.issued_coupon.coupon.shopper.name} <span className="label label-success" style={{backgroundColor: '#887650'}}>Friend's coupon</span></strong>
                                         <p>{item.issued_coupon.coupon.title}</p>
                                         <div>
-                                            {/*<i className="fa">*/}
-                                            {/*<img className="footer-menu-icon" src="images/zan-icon/coupon.png" width="24" height="24" alt=""/>*/}
-                                            {/*</i>*/}
+
                                             <span className="qty">{ item.startTimeFormat } - { item.expiredTimeFormat }</span>
                                             <p style={{width: '50px', float: 'right'}}>
                                                 详情
@@ -113,26 +111,6 @@ export default class CouponFriendList extends React.Component {
                                         </div>
                                     </div>
                                 </Link>
-                                {/*<div key={index} className="zan-card zan-container-content">*/}
-
-                                {/*<CouponListShopperName item={item}/>*/}
-                                {/*<div className="zan-container zan-red">*/}
-                                {/*<h4>{item.issued_coupon.coupon.content}</h4>*/}
-                                {/*<b>Days left: {item.daysLeft}</b>*/}
-                                {/*<em>{item.startTimeFormat} - {item.expiredTimeFormat}*/}
-                                {/*<Link to={`/friend/coupon/${item.issued_coupon.coupon.id}/${item.issued_coupon.id}/${ownerUserId}`}>*/}
-                                {/*<img className="footer-menu-icon" src="images/zan-icon/info-white.png" width="20" height="20" alt=""/>*/}
-                                {/*</Link>*/}
-                                {/*</em>*/}
-                                {/*</div>*/}
-
-                                {/*<div className="zan-action-button">*/}
-                                {/*<a href="#" onClick={(e, issuedCoupon) => this.SentCouponToFriend(e, item.issued_coupon)}>*/}
-                                {/*<img src="images/zan-icon/send.png" alt="" width="36" height="36"/>*/}
-                                {/*</a>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-
                             </div>
 
 
