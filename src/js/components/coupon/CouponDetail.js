@@ -67,8 +67,16 @@ export default class CouponDetail extends React.Component {
                                 <div className="zan-container-content">
                                     <div className="zan-content-header">
                                         <h2>
-                                            <img className="preload-image" data-original="images/zan-images/u150.png"
-                                                 alt="img" width="40"/>
+
+
+                                            { this.state.item.coupon.shopper.logo && (
+                                                <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.coupon.shopper.logo}`} alt="" width="40"/>
+                                            )}
+
+                                            { !this.state.item.coupon.shopper.logo && (
+                                                <img className="preload-image" data-original="images/zan-images/u150.png" alt="img" width="40"/>
+                                            )}
+
                                             { this.state.item.coupon.shopper.name }
                                         </h2>
                                         <h1 className="zan-red">{ this.state.item.coupon.title }</h1>
@@ -106,13 +114,13 @@ export default class CouponDetail extends React.Component {
                                     {!this.state.item.isRedeemed && (
                                         <div style={{textAlign:'center', padding: '20px'}}>
                                             <button className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>Redeem</button>
-                                            <p>This button is only for machant  use!</p>
+                                            <p style={{marginBottom: '0px'}}>This button is only for machant  use!</p>
                                         </div>
                                     )}
 
                                     {this.state.item.isRedeemed && (
-                                        <div style={{textAlign:'center', padding: '20px'}}>
-                                            <p>This coupon is redeemed</p>
+                                        <div style={{textAlign:'center', padding: '5px'}}>
+                                            <p style={{marginBottom: '0px'}}>This coupon is redeemed</p>
                                         </div>
                                     )}
 

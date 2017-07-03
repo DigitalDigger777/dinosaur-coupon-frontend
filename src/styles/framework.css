@@ -9904,13 +9904,13 @@ button.swiper-pagination-bullet {
     /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d50000', endColorstr='#f85032', GradientType=1 );*/
     text-align: center;
     color: #ffffff;
-    line-height: 100px;
+    line-height: 40px;
     margin-bottom: 0;
 }
 
 .zan-content {
     background-color: #eeeeee;
-    padding-top: 25px;
+    padding-top: 0px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
