@@ -26,7 +26,7 @@ export default class StoreDetailYourCoupons extends React.Component {
             params: {
                 method: 'LIST',
                 page: 1,
-                items_on_page: 5
+                items_on_page: 100
             }
         }).then(response => {
             this.setState({
