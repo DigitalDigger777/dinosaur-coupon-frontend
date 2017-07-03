@@ -27,7 +27,7 @@ export default class StoreDetailAllCoupons extends React.Component {
             params: {
                 method: 'LIST',
                 page: 1,
-                items_on_page: 5
+                items_on_page: 100
             }
         }).then(response => {
             this.setState({
@@ -48,7 +48,7 @@ export default class StoreDetailAllCoupons extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-container-content">
-                                <Link to={`/coupon/${item.coupon.id}`}>
+                                <Link to={`/store/coupon/${item.coupon.id}`}>
                                     <div className="zan-container zan-red">
                                         <h4>{item.coupon.title}</h4>
                                         <b>Days left: {item.daysLeft}</b>

@@ -18,6 +18,7 @@ export default class StoreList extends React.Component {
         this.state = {
             shopperId: props.match.params.id,
             item: null,
+            yourCountCoupons: 0,
             tab: /\/store\/([\w\W]+)\/[0-9]+/.exec(props.match.url)[1],
             status: 'Load...'
         };
@@ -29,9 +30,14 @@ export default class StoreList extends React.Component {
     componentDidMount(props) {
         const config = new Config();
 
-        axios.get(config.baseUrl + 'coupon/shopper/rest/' + this.state.shopperId).then(response => {
+        axios.get(config.baseUrl + 'coupon/shopper/rest/' + this.state.shopperId, {
+            params: {
+                consumer_id: window.localStorage.getItem('user_id')
+            }
+        }).then(response => {
             this.setState({
-                item: response.data
+                item: response.data[0],
+                yourCountCoupons: response.data.yourCountCoupons
             });
             this.setState({status: 'Store not found'});
             $(".preload-image").lazyload({
@@ -80,7 +86,7 @@ export default class StoreList extends React.Component {
                                         </div>
                                         <div>
                                             <div className="float-left">Total Coupon <span>{this.state.item.countCoupons}</span></div>
-                                            <div className="float-left">Your Coupon <span>0</span></div>
+                                            <div className="float-left">Your Coupon <span>{this.state.yourCountCoupons}</span></div>
                                         </div>
                                         <div className="clear"></div>
                                     </div>

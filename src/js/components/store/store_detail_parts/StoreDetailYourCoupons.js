@@ -3,6 +3,7 @@
  */
 
 import Config from '../../Config';
+import {Link} from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 
@@ -46,13 +47,13 @@ export default class StoreDetailYourCoupons extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index} className="zan-card zan-container-content">
-                                <a href="coupon-detail.html">
+                                <Link to={`/coupon/${item.issued_coupon.id}`}>
                                     <div className="zan-container zan-red">
                                         <h4>{item.issued_coupon.coupon.title}</h4>
                                         <b>Days left: {item.daysLeft} </b>
                                         <em>{item.startTimeFormat} - {item.expiredTimeFormat}</em>
                                     </div>
-                                </a>
+                                </Link>
                                 <div className="zan-action-button">
                                     {/*<a href="#" className="show-dialog-add-coupon">*/}
                                     {/*<img src="images/zan-icon/coupon-add.png" alt="" width="28" height="28"/>*/}

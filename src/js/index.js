@@ -12,6 +12,7 @@ import CouponDetail from './components/coupon/CouponDetail';
 import StoreDetail from './components/store/StoreDetail';
 import CouponFriendDetail from './components/coupon/CouponFriendDetail';
 import CouponScanDetail from './components/coupon/CouponScanDetail';
+import StoreCouponDetail from './components/store/StoreCouponDetail';
 
 import { HashRouter,Route, hashHistory } from 'react-router-dom'
 
@@ -39,6 +40,7 @@ export default class Index extends React.Component{
                     <Route exact path="/store/:id" component={StoreDetail} />
                     <Route exact path="/store/all-coupons/:id" component={StoreDetail} />
                     <Route exact path="/store/your-coupons/:id" component={StoreDetail} />
+                    <Route exact path="/store/coupon/:id" component={StoreCouponDetail} />
 
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/login" component={Login} />
