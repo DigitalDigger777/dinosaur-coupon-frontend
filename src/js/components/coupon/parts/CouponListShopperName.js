@@ -9,7 +9,7 @@ export default class CouponListShopperName extends React.Component {
 
     constructor(props){
         super(props);
-        console.log(props);
+
         this.state = {
             item: props.item
         }

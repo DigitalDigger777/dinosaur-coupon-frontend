@@ -91,7 +91,7 @@ export default class CouponCouponsList extends React.Component {
                                     <CouponListShopperName item={item}/>
 
                                     <div className="zan-wrap-content">
-                                        <strong>{item.issued_coupon.coupon.shopper.name}</strong>
+                                        <strong>{item.issued_coupon.coupon.shopper.name} {item.issued_coupon.isRedeemed && (<span className="label label-danger">redeemed</span>)}</strong>
                                         <p>{item.issued_coupon.coupon.title}</p>
                                         <div>
                                             {/*<i className="fa">*/}

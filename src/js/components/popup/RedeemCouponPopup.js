@@ -32,6 +32,8 @@ export default class RedeemCouponPopup extends React.Component {
             .then(response => {
                 //console.log(response);
                 $('#redeemCouponPopup').modal('hide');
+                $('#redeemButton').css('background-color', '#d3d3d3');
+                $('#redeemButton').attr('disabled', 'disabled');
             }).catch(error => {
             console.log(error);
         });
