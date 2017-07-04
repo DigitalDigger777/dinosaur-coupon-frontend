@@ -104,7 +104,8 @@ export default class CouponFriendList extends React.Component {
                                         <div>
 
                                             <span className="qty">{ item.startTimeFormat } - { item.expiredTimeFormat }</span>
-                                            <p style={{width: '50px', float: 'right'}}>
+                                            <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
+                                            <p style={{width: '50px'}}>
                                                 详情
                                                 <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
                                             </p>
@@ -112,8 +113,6 @@ export default class CouponFriendList extends React.Component {
                                     </div>
                                 </Link>
                             </div>
-
-
                         )
                     }
                 </div>

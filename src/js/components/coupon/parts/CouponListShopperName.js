@@ -29,13 +29,16 @@ export default class CouponListShopperName extends React.Component {
         if (this.state.item.issued_coupon.coupon.shopper.logo != "") {
             return (
 
-                    <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.issued_coupon.coupon.shopper.logo}`} alt="img"/>
+                    <div style={{width:'100px', float: 'left', marginTop: '8%'}}>
+                        <img  style={{width:'100px'}} className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.issued_coupon.coupon.shopper.logo}`} alt="img"/>
+                    </div>
 
             );
         } else {
             return (
+                <div style={{width:'100px', float: 'left', marginTop: '20px'}}>
                     <img className="preload-image" data-original={`images/zan-images/u150.png`} alt="img" />
-
+                </div>
             );
         }
     }
