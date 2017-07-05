@@ -751,9 +751,7 @@
   animation-name: fadeOut;
 }
 
-.footer-menu a {
-    color: #887650 !important;
-}
+
 
 .footer-menu a:hover {
     background-color: transparent !important;

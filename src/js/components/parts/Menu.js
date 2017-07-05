@@ -11,10 +11,12 @@ export default class Menu extends React.Component {
 
         console.log('menu', window.location.hash);
         this.state = {
-            active: 'coupon',
             activeCoupon: '',
             activeStores: '',
-            activeMessages: ''
+            activeMessages: '',
+            activeCouponColor: '#887650',
+            activeStoresColor: '#887650',
+            activeMessagesColor: '#887650',
         }
     }
 
@@ -23,15 +25,19 @@ export default class Menu extends React.Component {
         switch (window.location.hash) {
             case '#/':
                     this.state.activeCoupon = 'zan-active';
+                    this.state.activeCouponColor = '#000000';
                 break;
             case '#/coupon/friend/list':
                     this.state.activeStores = 'zan-active';
+                    this.state.activeStoresColor = '#000000 !important';
                 break;
             case '#/stores':
                     this.state.activeStores = 'zan-active';
+                    this.state.activeStoresColor = '#000000 !important';
                 break;
             case '#/messages':
                     this.state.activeMessages = 'zan-active';
+                    this.state.activeMessagesColor = '#000000 !important';
                 break;
         }
 
@@ -42,9 +48,9 @@ export default class Menu extends React.Component {
 
         return (
             <div className="footer-menu footer-menu-light">
-                <Link to="/"><i className={`fa zan-coupon ${this.state.activeCoupon}`}></i>Coupons</Link>
-                <Link to="/stores"><i className={`fa zan-coupon ${this.state.activeStores}`}></i>Stores</Link>
-                <Link to="/messages"><i className={`fa zan-coupon ${this.state.activeMessages}`}></i>Messages</Link>
+                <Link to="/" style={{color:this.state.activeCouponColor}}><i className={`fa zan-coupon ${this.state.activeCoupon}`}></i>Coupons</Link>
+                <Link to="/stores" style={{color:this.state.activeStoresColor}}><i className={`fa zan-coupon ${this.state.activeStores}`}></i>Stores</Link>
+                <Link to="/messages" style={{color:this.state.activeMessagesColor}}><i className={`fa zan-coupon ${this.state.activeMessages}`}></i>Messages</Link>
                 {/*<Link to="/profile"><i className="fa zan-coupon"></i>Profile</Link>*/}
 
                 {/*<a href="main.html" className="zan-active" ><i className="fa zan-coupon"></i>Coupons</a>*/}

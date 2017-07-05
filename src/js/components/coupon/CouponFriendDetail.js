@@ -121,6 +121,8 @@ export default class CouponFriendDetail extends React.Component {
 
     render(){
         if (this.state.item) {
+            const config = new Config();
+
             return (
                 <div>
                     <PageLoader/>
@@ -134,8 +136,14 @@ export default class CouponFriendDetail extends React.Component {
                                 <div className="zan-container-content">
                                     <div className="zan-content-header">
                                         <h2>
-                                            <img className="preload-image" data-original="images/zan-images/u150.png"
-                                                 alt="img" width="40"/>
+                                            { this.state.item.shopper.logo && (
+                                                <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.shopper.logo}`} alt="" width="40"/>
+                                            )}
+
+                                            { !this.state.item.shopper.logo && (
+                                                <img className="preload-image" data-original="images/zan-images/u150.png" alt="img" width="40"/>
+                                            )}
+
                                             { this.state.item.shopper.name }
                                         </h2>
                                         <h1 className="zan-red">{ this.state.item.title }</h1>
