@@ -67,7 +67,7 @@ export default class CouponFriendList extends React.Component {
             }
         }).then(response => {
             if (response.data.items.length > 0 && !this.state.lastPage) {
-                console.log(response.data.items);
+                // console.log(response.data.items);
                 response.data.items.map(item => {
                     this.state.items.push(item);
                 });

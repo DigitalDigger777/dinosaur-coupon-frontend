@@ -18,20 +18,21 @@ export default class CouponList extends React.Component {
     }
 
     componentDidMount(props) {
-        console.log(props);
+        console.log('Coupon list init: ', props);
 
         $('#page-content-scroll').on('scroll', e => {
-            const pageContetnH      = $('#page-content-scroll').height();
-            const footerMenuH       = $('.footer-menu').height();
-            const visibleH          = pageContetnH - footerMenuH - $('.header').height();
+            const scrollHeight = $('#page-content-scroll')[0].scrollHeight;
+            const scrollTop    = $('#page-content-scroll')[0].scrollTop;
+            const height       = $('#page-content-scroll').height();
 
             let page = this.state.page;
 
-            if (e.currentTarget.scrollTop > (visibleH/2) * page) {
+            console.log((scrollHeight - scrollTop), ':', height);
+
+            if ((scrollHeight - scrollTop) == height) {
                 //console.log(e.currentTarget.scrollTop, contentHeight, contentOffset, cardHeight, visibleH, countVisibleCard, i);
                 page++;
                 this.setState({page: page});
-
             }
         });
     }
