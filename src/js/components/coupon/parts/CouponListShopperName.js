@@ -30,7 +30,7 @@ export default class CouponListShopperName extends React.Component {
             return (
 
                     <div style={{width:'100px', float: 'left', marginTop: '8%'}}>
-                        <img  style={{width:'100px'}} className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.issued_coupon.coupon.shopper.logo}`} alt="img"/>
+                        <img  style={{width:'100px'}} className="preload-image" data-original={`${config.baseImagePath}logos/${this.state.item.issued_coupon.coupon.shopper.logo}`} alt="img"/>
                     </div>
 
             );

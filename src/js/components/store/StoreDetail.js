@@ -68,7 +68,7 @@ export default class StoreList extends React.Component {
                                 <div className="zan-card zan-card-1 zan-container-content">
                                     {this.state.item.logo && (
                                         <img className="preload-image"
-                                             data-original={`${config.baseImagePath}images/logo/${this.state.item.logo}`}
+                                             data-original={`${config.baseImagePath}logos/${this.state.item.logo}`}
                                              alt="img" style={{display: 'block'}}/>
                                     )}
 

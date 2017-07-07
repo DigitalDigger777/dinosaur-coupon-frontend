@@ -70,7 +70,7 @@ export default class StoreCouponDetail extends React.Component {
 
 
                                             { this.state.item.shopper.logo && (
-                                                <img className="preload-image" data-original={`${config.baseImagePath}images/logo/${this.state.item.shopper.logo}`} alt="" width="40"/>
+                                                <img className="preload-image" data-original={`${config.baseImagePath}logos/${this.state.item.shopper.logo}`} alt="" width="40"/>
                                             )}
 
                                             { !this.state.item.shopper.logo && (
