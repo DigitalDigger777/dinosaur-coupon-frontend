@@ -85,7 +85,7 @@ export default class MessageList extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index}>
-                                <a className="zan-contact-title" href="#">
+                                <Link className="zan-contact-title" to={`coupon/message/detail/${item.data.couponId}`}>
                                     <img src="images/pictures/1t.jpg" alt="img" />
                                     <div className="zan-message-content">
                                         <strong>{item.title}</strong><br />
@@ -94,7 +94,7 @@ export default class MessageList extends React.Component {
                                     <div className="zan-message-details">
                                         <span className="zan-time-ago">1h ago</span>
                                     </div>
-                                </a>
+                                </Link>
                                 <div className="decoration"></div>
                             </div>
                         )
