@@ -27,10 +27,6 @@ export default class BodyCoupon extends React.Component {
         if (props.location.pathname == '/') {
             tab = 'coupons';
         }
-        //
-        // if (props.location.pathname == '/coupon/received/list') {
-        //     tab = 'received';
-        // }
 
         this.state = {
             tab: tab,
@@ -45,10 +41,9 @@ export default class BodyCoupon extends React.Component {
         const config = new Config();
 
         const matchUser = /\?user=([\w\W]+)/.exec(window.location.search);
-        const user = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
+        const user      = matchUser ? JSON.parse(decodeURI(matchUser[1])) : null;
         this.state.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
 
-        console.log(user);
 
         if (user == null && this.state.user == null) {
             this.state.status = '';
@@ -57,10 +52,9 @@ export default class BodyCoupon extends React.Component {
 
         if (user != null) {
 
-            ///console.log(user);
-
             this.state.user = user;
             this.state.status = 'Get user';
+
             //set here
             axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
                 socialId: user.unionid,
@@ -76,9 +70,7 @@ export default class BodyCoupon extends React.Component {
             });
 
         }
-
     }
-
 
     render(){
 
@@ -86,15 +78,12 @@ export default class BodyCoupon extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    {/*<Header/>*/}
                     <SentCouponToFriendPopup/>
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
                         <div id="page-content-scroll">
                             <div className="content">
                                 <div className="home-tabs">
-                                    {/*<Link to={'/coupon/received/list'}*/}
-                                          {/*className={`activate-tab-1 ${this.state.tab == 'received' ? 'active-home-tab' : ''}`}>Received</Link>*/}
                                     <Link to={'/'}
                                           className={`activate-tab-2 ${this.state.tab == 'coupons' ? 'active-home-tab' : ''}`}>Coupons</Link>
                                     <Link to={'/coupon/friend/list'}
@@ -103,13 +92,9 @@ export default class BodyCoupon extends React.Component {
                                 </div>
                             </div>
 
-
                             <div className="content" id="tab-1">
-
-                                    <CouponList tab={this.state.tab}/>
-
+                                <CouponList tab={this.state.tab} />
                             </div>
-
 
                             <div className="footer footer-light"></div>
 
