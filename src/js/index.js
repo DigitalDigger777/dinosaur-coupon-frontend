@@ -30,7 +30,6 @@ export default class Index extends React.Component{
         return (
             <HashRouter history={hashHistory}>
                 <div>
-                    {/*<Route exact path="/coupon/received/list" component={BodyCoupon} />*/}
                     <Route exact path="/" component={BodyCoupon} />
                     <Route exact path="/coupon/friend/list" component={BodyCoupon} />
                     <Route exact path="/coupon/:id" component={CouponDetail} />
@@ -51,14 +50,7 @@ export default class Index extends React.Component{
                     <Route exact path="/login-wechat" component={LoginWechat} />
 
                     <Route exact path="/messages" component={BodyMessage} />
-                    {/*<Route exact path="/event/:page" component={BodyEvent}></Route>*/}
-                    {/*<Route exact path="/coupon/:page" component={BodyCoupon}></Route>*/}
-                    {/*<Route exact path="/event/detail/:id/:tab" component={BodyEventDetail}></Route>*/}
-                    {/*<Route exact path="/event/detail-friend/:id/:tab" component={BodyEventDetailFriend}></Route>*/}
 
-                    {/*<Route path="/coupon/detail/:id" component={CouponDetail}></Route>*/}
-                    {/*<Route exact path="/coupon/redeem/:id" component={CouponRedeem}></Route>*/}
-                    {/*<Route exact path="/login" component={Login}></Route>*/}
                 </div>
             </HashRouter>
         )

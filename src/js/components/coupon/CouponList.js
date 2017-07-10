@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import CouponReceivedList from './CouponReceivedList';
 import CouponCouponsList from './CouponCouponsList';
 import CouponFriendList from './CouponFriendList';
 
@@ -30,7 +29,6 @@ export default class CouponList extends React.Component {
             console.log((scrollHeight - scrollTop), ':', height);
 
             if ((scrollHeight - scrollTop) == height) {
-                //console.log(e.currentTarget.scrollTop, contentHeight, contentOffset, cardHeight, visibleH, countVisibleCard, i);
                 page++;
                 this.setState({page: page});
             }
@@ -38,11 +36,6 @@ export default class CouponList extends React.Component {
     }
 
     render(){
-        // if (this.state.tab == 'received') {
-        //     return(
-        //         <CouponReceivedList page={this.state.page} />
-        //     )
-        // }
 
         if (this.state.tab == 'coupons') {
             return(
