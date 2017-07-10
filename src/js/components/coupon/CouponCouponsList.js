@@ -99,6 +99,16 @@ export default class CouponCouponsList extends React.Component {
                                             {/*</i>*/}
                                             <span className="qty">{ item.startTimeFormat } - { item.expiredTimeFormat }</span>
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
+                                            {
+                                                JSON.parse(item.issued_coupon.source).headimgurl && (
+                                                    <div>
+                                                        {/*<img className="quote-image"*/}
+                                                             {/*src={ JSON.parse(item.issued_coupon.source).headimgurl } width={'30px'} alt=""/>*/}
+                                                        <p><b>Received:</b> {JSON.parse(item.issued_coupon.source).nickname}</p>
+                                                    </div>
+                                                )
+                                            }
+                                            <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
                                             <p style={{width: '50px'}}>
                                                 详情
                                                 <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
