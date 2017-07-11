@@ -61,16 +61,14 @@ export default class CouponCouponsList extends React.Component {
             }
         }).then(response => {
             if (response.data.items.length > 0 && !this.state.lastPage) {
-                console.log(response.data.items);
+
                 response.data.items.map(item => {
                     this.state.items.push(item);
                 });
 
                 this.setState({countPages: response.data.count_pages});
-                // this.setState({items: response.data.items});
                 this.setState({status: 'List empty'});
 
-                console.log(this.state);
             } else {
                 this.setState({lastPage: true});
             }

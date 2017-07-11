@@ -5,7 +5,6 @@
 import React from 'react';
 import CouponList from './CouponList';
 import PageLoader from '../parts/PageLoader';
-// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import {Link} from 'react-router-dom';
 import Bootstrap from 'bootstrap';

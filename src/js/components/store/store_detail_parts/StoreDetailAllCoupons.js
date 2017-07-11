@@ -51,7 +51,7 @@ export default class StoreDetailAllCoupons extends React.Component {
                                 <Link to={`/store/coupon/${item.coupon.id}`}>
                                     <div className="zan-container zan-red">
                                         <h4>{item.coupon.title}</h4>
-                                        <b>Days left: {item.daysLeft}</b>
+                                        <b>Days left: {item.daysLeft < 0 ? 'expired' : item.daysLeft}</b>
                                         <em>{item.startTimeFormat} - {item.expiredTimeFormat}</em>
                                     </div>
                                 </Link>

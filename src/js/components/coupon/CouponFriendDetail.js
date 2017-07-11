@@ -38,13 +38,6 @@ export default class CouponFriendDetail extends React.Component {
         const couponId           = this.state.couponId;
         const issuedCouponId     = this.state.issuedCouponId;
 
-        const data = {
-            fromConsumerId: fromConsumerId,
-            toConsumerId: toConsumerId,
-            couponId: couponId,
-            issuedCouponId: issuedCouponId
-        };
-
         axios.post(config.baseUrl + 'coupon/issued/rest/0', {
             consumerId: toConsumerId,
             couponId: couponId,
@@ -126,7 +119,6 @@ export default class CouponFriendDetail extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    {/*<Header/>*/}
                     <AcceptCouponPopup/>
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
@@ -158,16 +150,11 @@ export default class CouponFriendDetail extends React.Component {
 
                                         <div className="zan-container zan-container-detail">
                                             <h2>{ this.state.item.content }</h2>
-                                            <b>Days left: {this.state.daysLeft}</b><br/>
+                                            <b>Days left: {this.state.daysLeft < 0 ? 'expired' : this.state.daysLeft}</b><br/>
                                             <em>{this.state.startTime} - {this.state.expiredTime}</em>
                                         </div>
                                         <div className="center-text">
-                                            {/*<div className="zan-qr-code">*/}
-                                                {/*<img className="preload-image"*/}
-                                                     {/*data-original="images/zan-images/qr-code.png" alt="img"*/}
-                                                     {/*width="100"/>*/}
-                                            {/*</div>*/}
-                                            {/*<div className="zan-coupon-number">172891</div>*/}
+
                                         </div>
                                         { this.state.userId != this.state.ownerUserId && (
                                             <div>

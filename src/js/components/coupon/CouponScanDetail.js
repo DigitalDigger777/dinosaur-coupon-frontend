@@ -102,7 +102,7 @@ export default class CouponScanDetail extends React.Component {
 
                                         <div className="zan-container zan-container-detail">
                                             <h2>{ this.state.item.content }</h2>
-                                            <b>Days left: {this.state.daysLeft}</b><br/>
+                                            <b>Days left: {this.state.daysLeft < 0 ? 'expired' : this.state.daysLeft}</b><br/>
                                             <em>{this.state.startTime} - {this.state.expiredTime}</em>
                                         </div>
                                         <div className="center-text">

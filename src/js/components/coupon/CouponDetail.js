@@ -5,11 +5,9 @@
 import React from 'react';
 import axios from 'axios';
 import PageLoader from '../parts/PageLoader';
-// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 import RedeemCouponPopup from '../popup/RedeemCouponPopup';
-//import $ from 'jquery';
 
 export default class CouponDetail extends React.Component {
 
@@ -26,7 +24,6 @@ export default class CouponDetail extends React.Component {
         const config = new Config();
         const apiUrl = config.baseUrl;
 
-
         axios.get(apiUrl + 'coupon/issued/rest/' + this.state.couponId).then(response => {
             console.log(response.data);
             this.setState({item:response.data[0]});
@@ -40,7 +37,7 @@ export default class CouponDetail extends React.Component {
                 container: $("#page-content-scroll")
             });
             this.setState({status: 'Coupon not found'});
-            console.log(this.state);
+
         }).catch(function(error){
             console.log(error);
         });
@@ -58,7 +55,6 @@ export default class CouponDetail extends React.Component {
             return (
                 <div>
                     <PageLoader/>
-                    {/*<Header/>*/}
                     <RedeemCouponPopup issuedCouponId={this.state.item.id} />
 
                     <div id="page-content" className="page-content fadeIn page-content show-containers">
@@ -68,7 +64,6 @@ export default class CouponDetail extends React.Component {
                                 <div className="zan-container-content">
                                     <div className="zan-content-header">
                                         <h2>
-
 
                                             { this.state.item.coupon.shopper.logo && (
                                                 <img className="preload-image" data-original={`${config.baseImagePath}logos/${this.state.item.coupon.shopper.logo}`} alt="" width="40"/>
@@ -83,26 +78,12 @@ export default class CouponDetail extends React.Component {
                                         <h1 className="zan-red">{ this.state.item.coupon.title }</h1>
                                     </div>
                                     <div className="zan-content">
-                                        {/*<div className="zan-title-coupon">*/}
-                                            {/*<img className="preload-image"*/}
-                                                 {/*data-original="images/zan-images/friends-coupon.png" alt="img"*/}
-                                                 {/*height="50" style={{margin: '0 auto'}}/>*/}
-                                            {/*<span>{this.state.item.coupon.title}</span>*/}
-                                        {/*</div>*/}
 
                                         <div className="zan-container zan-container-detail">
                                             <h2>{ this.state.item.coupon.content }</h2>
-                                            <b>Days left: {this.state.daysLeft}</b><br/>
+                                            <b>Days left: {this.state.daysLeft < 0 ? 'expired' : this.state.daysLeft}</b><br/>
                                             <em>{this.state.startTime}-{this.state.expiredTime}</em>
                                         </div>
-                                        {/*<div className="center-text">*/}
-                                            {/*<div className="zan-qr-code">*/}
-                                                {/*<img className="preload-image"*/}
-                                                     {/*data-original={config.baseUrl+`qrcode/${this.state.item.code}.png`} alt="img"*/}
-                                                     {/*width="100"/>*/}
-                                            {/*</div>*/}
-                                            {/*<div className="zan-coupon-number">#{this.state.item.code}</div>*/}
-                                        {/*</div>*/}
                                         <div className="zan-content-footer">
                                             <div className="center-text">
                                                 Offer expires December 4, 2016. Offer not valid on Value Deals menu
