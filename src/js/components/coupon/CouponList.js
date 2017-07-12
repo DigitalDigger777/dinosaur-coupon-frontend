@@ -26,11 +26,13 @@ export default class CouponList extends React.Component {
 
             let page = this.state.page;
 
-            console.log((scrollHeight - scrollTop), ':', height);
-
             if ((scrollHeight - scrollTop) == height) {
-                page++;
-                this.setState({page: page});
+                setTimeout(function(){
+                    page++;
+
+                    this.setState({page: page});
+                });
+
             }
         });
     }

@@ -43,11 +43,11 @@ export default class CouponFriendList extends React.Component {
                 consumerId: userId
             }
         }).then(response => {
-            console.log(response.data.items);
+
             this.setState({countPages:response.data.count_pages});
             this.setState({items: response.data.items});
             this.setState({status: 'List empty'});
-            console.log(this.state);
+
         }).catch(function(error){
             console.log(error);
         });
@@ -58,30 +58,34 @@ export default class CouponFriendList extends React.Component {
         const apiUrl = config.baseUrl;
         const userId = window.localStorage.getItem('user_id');
 
-        axios.get(apiUrl + 'coupon/consumer-issued-friend/rest/0', {
-            params: {
-                method: 'LIST',
-                page: props.page,
-                items_on_page: 5,
-                consumerId: userId
-            }
-        }).then(response => {
-            if (response.data.items.length > 0 && !this.state.lastPage) {
-                // console.log(response.data.items);
-                response.data.items.map(item => {
-                    this.state.items.push(item);
-                });
+        if (!this.state.lastPage) {
 
-                this.setState({countPages: response.data.count_pages});
-                // this.setState({items: response.data.items});
-                this.setState({status: 'List empty'});
-                console.log(this.state);
-            } else {
-                this.setState({lastPage: true});
-            }
-        }).catch(function(error){
-            console.log(error);
-        });
+            axios.get(apiUrl + 'coupon/consumer-issued-friend/rest/0', {
+                params: {
+                    method: 'LIST',
+                    page: props.page,
+                    items_on_page: 5,
+                    consumerId: userId
+                }
+            }).then(response => {
+                if (response.data.items.length > 0 && !this.state.lastPage) {
+                    // console.log(response.data.items);
+                    response.data.items.map(item => {
+                        this.state.items.push(item);
+                    });
+
+                    this.setState({countPages: response.data.count_pages});
+                    // this.setState({items: response.data.items});
+                    this.setState({status: 'List empty'});
+
+                } else {
+                    this.setState({lastPage: true});
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+            
+        }
     }
 
     render(){
