@@ -27,11 +27,10 @@ export default class CouponList extends React.Component {
             let page = this.state.page;
 
             if ((scrollHeight - scrollTop) == height) {
-                setTimeout(function(){
+
                     page++;
 
                     this.setState({page: page});
-                });
 
             }
         });
