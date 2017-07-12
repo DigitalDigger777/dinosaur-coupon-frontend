@@ -93,7 +93,7 @@ export default class CouponDetail extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    {!this.state.item.isRedeemed && (
+                                    {!this.state.item.isRedeemed && this.state.daysLeft > 0 && (
                                         <div style={{textAlign:'center', padding: '20px'}}>
                                             <button id="redeemButton" className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>Redeem</button>
                                             <p style={{marginBottom: '0px'}}>This button is only for machant  use!</p>
