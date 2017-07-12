@@ -52,29 +52,31 @@ export default class CouponCouponsList extends React.Component {
         const apiUrl = config.baseUrl;
         const userId = window.localStorage.getItem('user_id');
 
-        axios.get(apiUrl + 'coupon/consumer-coupon/rest/0', {
-            params: {
-                method: 'LIST',
-                page: props.page,
-                items_on_page: 5,
-                consumerId: userId
-            }
-        }).then(response => {
-            if (response.data.items.length > 0 && !this.state.lastPage) {
+        if (!this.state.lastPage) {
+            axios.get(apiUrl + 'coupon/consumer-coupon/rest/0', {
+                params: {
+                    method: 'LIST',
+                    page: props.page,
+                    items_on_page: 5,
+                    consumerId: userId
+                }
+            }).then(response => {
+                if (response.data.items.length > 0 && !this.state.lastPage) {
 
-                response.data.items.map(item => {
-                    this.state.items.push(item);
-                });
+                    response.data.items.map(item => {
+                        this.state.items.push(item);
+                    });
 
-                this.setState({countPages: response.data.count_pages});
-                this.setState({status: 'List empty'});
+                    this.setState({countPages: response.data.count_pages});
+                    this.setState({status: 'List empty'});
 
-            } else {
-                this.setState({lastPage: true});
-            }
-        }).catch(function(error){
-            console.log(error);
-        });
+                } else {
+                    this.setState({lastPage: true});
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     render(){
