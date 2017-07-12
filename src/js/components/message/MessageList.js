@@ -85,14 +85,28 @@ export default class MessageList extends React.Component {
                     {
                         this.state.items.map((item, index) =>
                             <div key={index}>
-                                <Link className="zan-contact-title" to={`coupon/message/detail/${item.data.couponId}`}>
+                                <Link className="zan-contact-title" to={`coupon/message/detail/${item[0].data.couponId}`}>
                                     <img src="images/pictures/1t.jpg" alt="img" />
                                     <div className="zan-message-content">
-                                        <strong>{item.title}</strong><br />
-                                        <em>{item.message}</em>
+                                        <strong>{item[0].title}</strong><br />
+                                        <em>{item[0].message}</em>
                                     </div>
                                     <div className="zan-message-details">
-                                        <span className="zan-time-ago">1h ago</span>
+                                        { item.months > 0 && (
+                                            <span className="zan-time-ago">{item.months}mos ago</span>
+                                        )}
+
+                                        { item.months == 0 && item.days > 0 && (
+                                            <span className="zan-time-ago">{item.days}d ago</span>
+                                        )}
+
+                                        { item.months == 0 && item.days == 0 && item.hours > 0 && (
+                                            <span className="zan-time-ago">{item.hours}h ago</span>
+                                        )}
+
+                                        { item.months == 0 && item.days == 0 && item.hours == 0 && item.minutes == 0 && (
+                                            <span className="zan-time-ago">{item.minutes}h ago</span>
+                                        )}
                                     </div>
                                 </Link>
                                 <div className="decoration"></div>
