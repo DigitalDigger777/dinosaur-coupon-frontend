@@ -38,7 +38,7 @@ export default class CouponFriendDetail extends React.Component {
         const couponId           = this.state.couponId;
         const issuedCouponId     = this.state.issuedCouponId;
 
-        axios.post(config.baseUrl + 'coupon/issued/rest/0', {
+        axios.post(config.baseUrl + 'coupon/issued-coupon-accept/rest/0', {
             consumerId: toConsumerId,
             fromConsumerId: fromConsumerId,
             couponId: couponId,
