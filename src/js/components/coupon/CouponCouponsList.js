@@ -91,7 +91,7 @@ export default class CouponCouponsList extends React.Component {
                                     <CouponListShopperName item={item}/>
 
                                     <div className="zan-wrap-content">
-                                        <strong>{item.issued_coupon.coupon.shopper.name} {item.issued_coupon.isRedeemed && (<span className="label label-danger">redeemed</span>)}</strong>
+                                        <strong>{item.issued_coupon.coupon.shopper.name}</strong>
                                         <p>{item.issued_coupon.coupon.title}</p>
                                         <div>
                                             {/*<i className="fa">*/}
@@ -109,10 +109,17 @@ export default class CouponCouponsList extends React.Component {
                                                 )
                                             }
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
-                                            <p style={{width: '50px'}}>
-                                                详情
-                                                <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
-                                            </p>
+                                            <div className="container" style={{marginBottom: '0px', paddingLeft: '0px'}}>
+                                                <div className="one-half">
+                                                    {item.issued_coupon.isRedeemed && (<span className="label label-danger">redeemed</span>)}
+                                                </div>
+                                                <div className="one-half last-column">
+                                                    <p style={{marginLeft: '50px', width: '50px'}}>
+                                                        详情
+                                                        <span style={{paddingTop: '3px'}} className="fa fa-chevron-right" aria-hidden="true"></span>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
