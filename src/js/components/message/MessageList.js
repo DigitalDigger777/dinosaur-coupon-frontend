@@ -105,7 +105,7 @@ export default class MessageList extends React.Component {
                                         )}
 
                                         { item.months == 0 && item.days == 0 && item.hours == 0 && item.minutes > 0 && (
-                                            <span className="zan-time-ago">{item.minutes}h ago</span>
+                                            <span className="zan-time-ago">{item.minutes}m ago</span>
                                         )}
                                     </div>
                                 </Link>
