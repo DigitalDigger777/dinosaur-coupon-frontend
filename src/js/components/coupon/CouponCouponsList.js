@@ -110,7 +110,7 @@ export default class CouponCouponsList extends React.Component {
                                             }
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
                                             <div className="container" style={{marginBottom: '0px', paddingLeft: '0px'}}>
-                                                <div className="one-half">
+                                                <div className="one-half" style={{width: '89px'}}>
                                                     {item.issued_coupon.isRedeemed && (<span className="label label-danger">redeemed</span>)}
                                                 </div>
                                                 <div className="one-half last-column">
