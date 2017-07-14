@@ -20,7 +20,7 @@ export default class StoreList extends React.Component {
             item: null,
             yourCountCoupons: 0,
             tab: /\/store\/([\w\W]+)\/[0-9]+/.exec(props.match.url)[1],
-            status: 'Load...'
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
 
 

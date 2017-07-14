@@ -24,7 +24,7 @@ export default class CouponScanDetail extends React.Component {
             issuedCouponId: props.match.params.issuedCouponId,
             ownerUserId: props.match.params.ownerUserId,
             userId: window.localStorage.getItem('user_id'),
-            status: 'Load...',
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
             wxReady: false
         }
     }

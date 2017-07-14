@@ -16,7 +16,7 @@ export default class CouponCouponsList extends React.Component {
         this.state = {
             countPages: 1,
             items: [],
-            status: 'Load...',
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
             page: 1,
             lastPage: false
         }
@@ -133,7 +133,9 @@ export default class CouponCouponsList extends React.Component {
             );
         } else {
             return(
-                <div>{this.state.status}</div>
+                <div>
+                    {this.state.status}
+                </div>
             );
         }
     }

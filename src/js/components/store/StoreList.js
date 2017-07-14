@@ -15,7 +15,7 @@ export default class StoreList extends React.Component {
         this.state = {
             countPages: 1,
             items: [],
-            status: 'Load...',
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
             page: props.page
         }
 

@@ -13,7 +13,6 @@ export default class StoreListItem extends React.Component {
         this.state = {
             item: props.item
         }
-        console.log(props);
     }
 
     componentDidMount() {

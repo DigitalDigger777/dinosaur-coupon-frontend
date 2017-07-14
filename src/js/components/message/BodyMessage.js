@@ -20,7 +20,7 @@ export default class BodyMessage extends React.Component {
 
         this.state = {
             user: true,
-            status: 'Load messages...'
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
 
     }

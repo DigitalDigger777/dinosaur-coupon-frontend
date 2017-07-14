@@ -17,7 +17,7 @@ export default class CouponMessageDetail extends React.Component {
         super(props);
         this.state = {
             couponId: props.match.params.id,
-            status: 'Load...'
+            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
         this.redeem = this.redeem.bind(this);
     }
