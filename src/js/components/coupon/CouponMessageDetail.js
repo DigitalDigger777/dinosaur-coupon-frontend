@@ -81,6 +81,9 @@ export default class CouponMessageDetail extends React.Component {
                                             { this.state.item.shopper.name }
                                         </h2>
                                         <h1 className="zan-red">{ this.state.item.title }</h1>
+                                        <div className="zan-container zan-container-detail">
+                                            <em>{this.state.startTime}-{this.state.expiredTime}</em>
+                                        </div>
                                     </div>
                                     <div className="zan-content">
                                         {/*<div className="zan-title-coupon">*/}
@@ -91,9 +94,9 @@ export default class CouponMessageDetail extends React.Component {
                                         {/*</div>*/}
 
                                         <div className="zan-container zan-container-detail">
-                                            <h2>{ this.state.item.content }</h2>
+                                            <p>{ this.state.item.content }</p>
                                             {/*<b>Days left: {this.state.daysLeft}</b><br/>*/}
-                                            <em>{this.state.startTime}-{this.state.expiredTime}</em>
+
                                         </div>
                                         {/*<div className="center-text">*/}
                                             {/*<div className="zan-qr-code">*/}
@@ -105,10 +108,10 @@ export default class CouponMessageDetail extends React.Component {
                                         {/*</div>*/}
                                         <div className="zan-content-footer">
                                             <div className="center-text">
-                                                Offer expires December 4, 2016. Offer not valid on Value Deals menu
-                                                items. Cannot be combined with any other promotional offer. One coupon
-                                                can be redeemed per guest per visit. No cash value.
-                                                <br/>Welcomed at part cipaning A&W Restaurants in Canada.
+                                                {/*Offer expires December 4, 2016. Offer not valid on Value Deals menu*/}
+                                                {/*items. Cannot be combined with any other promotional offer. One coupon*/}
+                                                {/*can be redeemed per guest per visit. No cash value.*/}
+                                                {/*<br/>Welcomed at part cipaning A&W Restaurants in Canada.*/}
                                             </div>
                                         </div>
                                     </div>
