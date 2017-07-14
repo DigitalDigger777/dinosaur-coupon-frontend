@@ -83,8 +83,8 @@ export default class CouponDetail extends React.Component {
                                     </div>
                                     <div className="zan-content">
 
-                                        <div className="zan-container zan-container-detail">
-                                            <h2>{ this.state.item.coupon.content }</h2>
+                                        <div className="zan-container zan-container-detail" style={{paddingTop: '0px', paddingBottom: '0px'}}>
+                                            <p>{ this.state.item.coupon.content }</p>
                                         </div>
                                         <div className="zan-content-footer">
                                             <div className="center-text">
