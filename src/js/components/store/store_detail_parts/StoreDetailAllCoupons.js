@@ -10,12 +10,13 @@ import {Link} from 'react-router-dom';
 export default class StoreDetailAllCoupons extends React.Component {
     constructor(props){
         super(props);
+        const config = new Config();
 
         this.state = {
             shopperId: props.shopperId,
             items: [],
             count_pages: 1,
-            status: 'Load...'
+            status: <img src={`${config.baseFrontUrl}images/preload.gif`} style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
     }
 

@@ -5,19 +5,20 @@
 import React from 'react';
 import axios from 'axios';
 import PageLoader from '../parts/PageLoader';
-// import Header from '../parts/Header';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 import RedeemCouponPopup from '../popup/RedeemCouponPopup';
-//import $ from 'jquery';
+
 
 export default class CouponMessageDetail extends React.Component {
 
     constructor(props){
         super(props);
+
+        const config = new Config();
         this.state = {
             couponId: props.match.params.id,
-            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>
+            status: <img src={`${config.baseFrontUrl}images/preload.gif`} style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
         this.redeem = this.redeem.bind(this);
     }

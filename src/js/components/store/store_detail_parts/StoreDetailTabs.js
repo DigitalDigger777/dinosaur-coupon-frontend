@@ -11,7 +11,6 @@ import StoreDetailYourCoupons from './StoreDetailYourCoupons';
 export default class StoreDetailTabs extends React.Component {
     constructor(props){
         super(props);
-        console.log(props);
 
         this.state = {
             tab: props.tab,

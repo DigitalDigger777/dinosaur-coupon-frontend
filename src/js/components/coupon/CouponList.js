@@ -13,7 +13,6 @@ export default class CouponList extends React.Component {
             tab: props.tab,
             page: 1
         };
-        console.log(props);
     }
 
     componentDidMount(props) {

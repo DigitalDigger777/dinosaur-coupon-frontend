@@ -14,13 +14,14 @@ import StoreDetailTabs from './store_detail_parts/StoreDetailTabs';
 export default class StoreList extends React.Component {
     constructor(props){
         super(props);
+        const config = new Config();
 
         this.state = {
             shopperId: props.match.params.id,
             item: null,
             yourCountCoupons: 0,
             tab: /\/store\/([\w\W]+)\/[0-9]+/.exec(props.match.url)[1],
-            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>
+            status: <img src={`${config.baseFrontUrl}images/preload.gif`} style={{ margin: '0 auto'}} width={'50px'} alt=""/>
         };
 
 

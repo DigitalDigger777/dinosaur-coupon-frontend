@@ -11,10 +11,12 @@ export default class MessageList extends React.Component {
 
     constructor(props){
         super(props);
+
+        const config = new Config();
         this.state = {
             countPages: 1,
             items: [],
-            status: <img src="http://dev.coupon-mobile/images/preload.gif" style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
+            status: <img src={`${config.baseFrontUrl}images/preload.gif`} style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
             page: props.page,
             lastPage: false
         }
