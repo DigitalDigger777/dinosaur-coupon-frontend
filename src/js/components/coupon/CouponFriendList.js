@@ -106,7 +106,7 @@ export default class CouponFriendList extends React.Component {
                                     <CouponListShopperName item={item}/>
 
                                     <div className="zan-wrap-content">
-                                        <strong>{item.issued_coupon.coupon.shopper.name} <span className="label label-success" style={{backgroundColor: '#887650'}}>Friend's coupon</span></strong>
+                                        <strong>{item.issued_coupon.coupon.shopper.name}</strong>
                                         <p>{item.issued_coupon.coupon.title}</p>
                                         <div>
 
@@ -114,7 +114,7 @@ export default class CouponFriendList extends React.Component {
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
                                             <div className="container" style={{marginBottom: '0px', paddingLeft: '0px'}}>
                                                 <div className="one-half" style={{width: '89px'}}>
-                                                    <p>&nbsp;</p>
+                                                    <span className="label label-success" style={{backgroundColor: '#887650'}}>Friend's coupon</span>
                                                 </div>
                                                 <div className="one-half last-column">
                                                     <p style={{marginLeft: '50px', width: '50px'}}>
