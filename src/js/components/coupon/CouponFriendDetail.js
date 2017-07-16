@@ -24,7 +24,8 @@ export default class CouponFriendDetail extends React.Component {
             ownerUserId: props.match.params.ownerUserId,
             userId: window.localStorage.getItem('user_id'),
             status: <img src={`${config.baseFrontUrl}images/preload.gif`} style={{ margin: '0 auto'}} width={'50px'} alt=""/>,
-            wxReady: false
+            wxReady: false,
+            showAcceptButton: true
         }
     }
 
@@ -38,6 +39,7 @@ export default class CouponFriendDetail extends React.Component {
         const toConsumerId       = window.localStorage.getItem('user_id');
         const couponId           = this.state.couponId;
         const issuedCouponId     = this.state.issuedCouponId;
+
 
         axios.post(config.baseUrl + 'coupon/issued-coupon-accept/rest/0', {
             consumerId: toConsumerId,
@@ -94,24 +96,35 @@ export default class CouponFriendDetail extends React.Component {
     componentDidMount(props){
         const config = new Config();
         const apiUrl = config.baseUrl;
+        const userId = window.localStorage.getItem('user_id');
 
-        axios.get(apiUrl + 'coupon/rest/' + this.state.couponId).then(response => {
-            console.log(response.data);
-            this.setState({item:response.data[0]});
-            this.setState({expiredTime: response.data.expiredTimeFormat});
-            this.setState({startTime: response.data.startTimeFormat});
-            this.setState({daysLeft: response.data.daysLeft});
+        axios.get(apiUrl + 'coupon/issued/rest/check-accept/' + userId + '/' + this.state.couponId).then(response => {
+            if (response.data.length > 0) {
+                this.state.showAcceptButton = false;
+            }
 
-            $(".preload-image").lazyload({
-                threshold : 100,
-                effect : "fadeIn",
-                container: $("#page-content-scroll")
+            axios.get(apiUrl + 'coupon/rest/' + this.state.couponId).then(response => {
+                console.log(response.data);
+                this.setState({item:response.data[0]});
+                this.setState({expiredTime: response.data.expiredTimeFormat});
+                this.setState({startTime: response.data.startTimeFormat});
+                this.setState({daysLeft: response.data.daysLeft});
+
+                $(".preload-image").lazyload({
+                    threshold : 100,
+                    effect : "fadeIn",
+                    container: $("#page-content-scroll")
+                });
+                // this.setState({status: 'Coupon not found'});
+                console.log(this.state);
+            }).catch(function(error){
+                console.log(error);
             });
-            // this.setState({status: 'Coupon not found'});
-            console.log(this.state);
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log(error);
         });
+
+
     }
 
     render(){
@@ -160,9 +173,15 @@ export default class CouponFriendDetail extends React.Component {
                                         <div className="center-text">
 
                                         </div>
-                                        { this.state.userId != this.state.ownerUserId && (
+                                        { this.state.userId != this.state.ownerUserId && this.state.showAcceptButton && (
                                             <div>
                                                 <a href="#" onClick={e  => this.accept(e)} className="login-button button button-blue button-fullscreen">Accept</a>
+                                            </div>
+                                        )}
+
+                                        { !this.state.showAcceptButtom && (
+                                            <div>
+                                                You've accepted this coupon before.
                                             </div>
                                         )}
 
