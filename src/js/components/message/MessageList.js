@@ -79,16 +79,29 @@ export default class MessageList extends React.Component {
     render(){
 
         if (this.state.items.length > 0) {
-            // const config = new Config();
+            const config = new Config();
             // const ownerUserId = window.localStorage.getItem('user_id');
             // console.log(ownerUserId);
+
+            // let logo = <img src="images/pictures/1t.jpg" alt="img" />;
+            //
+            // if (this.state.item.logo) {
+            //
+            //     //logo = <img src={`${config.baseImagePath}logos/${this.state.item.logo}`} alt="img" />;
+            //
+            // }
+
             return (
                 <div>
                     {
                         this.state.items.map((item, index) =>
                             <div key={index}>
                                 <Link className="zan-contact-title" to={`coupon/message/detail/${item[0].data.couponId}`}>
-                                    <img src="images/pictures/1t.jpg" alt="img" />
+
+                                    { item[0].shopper.logo && (
+                                        <img src={`${config.baseImagePath}logos/${item[0].shopper.logo}`} alt="img" />
+                                    ) }
+
                                     <div className="zan-message-content">
                                         <strong>{item[0].title}</strong><br />
                                         <em>{item[0].message}</em>
