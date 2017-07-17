@@ -98,7 +98,7 @@ export default class CouponFriendDetail extends React.Component {
         const apiUrl = config.baseUrl;
         const userId = window.localStorage.getItem('user_id');
 
-        axios.get(apiUrl + 'coupon/issued/rest/check-accept/' + userId + '/' + this.state.couponId).then(response => {
+        axios.get(apiUrl + 'coupon/issued/rest/check-accept/' + this.state.issuedCouponId + '/' + userId + '/' + this.state.couponId).then(response => {
             if (response.data.length > 0) {
                 this.state.showAcceptButton = false;
             }
@@ -141,6 +141,9 @@ export default class CouponFriendDetail extends React.Component {
 
                             <div className="content">
                                 <div className="zan-container-content">
+                                    <div className="zan-container">
+                                        <p>朋友的券是特殊的优惠券。你需要发送给朋友。只有当朋友用了这张优惠券后，你才可以得到这张优惠券。假如你有10个朋友用了这个优惠券，你可以得到10张优惠券。</p>
+                                    </div>
                                     <div className="zan-content-header">
                                         <h2>
                                             { this.state.item.shopper.logo && (
@@ -179,21 +182,40 @@ export default class CouponFriendDetail extends React.Component {
                                             </div>
                                         )}
 
-                                        { !this.state.showAcceptButtom && (
+                                        { this.state.userId != this.state.ownerUserId && !this.state.showAcceptButton && (
                                             <div>
                                                 You've accepted this coupon before.
                                             </div>
                                         )}
 
-                                        <div className="zan-content-footer">
-                                            <div className="center-text">
-                                                {/*Offer expires December 4, 2016. Offer not valid on Value Deals menu*/}
-                                                {/*items. Cannot be combined with any other promotional offer. One coupon*/}
-                                                {/*can be redeemed per guest per visit. No cash value.*/}
-                                                {/*<br/>Welcomed at part cipaning A&W Restaurants in Canada.*/}
+                                        {/*<div className="zan-content-footer">*/}
+                                            {/*<div className="center-text">*/}
+                                                {/*/!*Offer expires December 4, 2016. Offer not valid on Value Deals menu*!/*/}
+                                                {/*/!*items. Cannot be combined with any other promotional offer. One coupon*!/*/}
+                                                {/*/!*can be redeemed per guest per visit. No cash value.*!/*/}
+                                                {/*/!*<br/>Welcomed at part cipaning A&W Restaurants in Canada.*!/*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    </div>
+
+                                    {this.state.userId == this.state.ownerUserId && (
+                                        <div className="zan-container">
+                                            <h2>如何使用朋友的券</h2>
+
+                                            <p>1. 点击右上方的。。。</p>
+                                            <div>
+                                                <img src="/images/coupon-friend-detail/help-1.png" alt="" style={{ width: '100%' }}/>
+                                            </div>
+                                            <p>2. 点击发送给朋友和分享到朋友圈，可以发送优惠券给微信朋友和朋友圈</p>
+                                            <div>
+                                                <img src="/images/coupon-friend-detail/help-2.png" alt="" style={{ width: '100%' }}/>
+                                            </div>
+                                            <p>3. 当朋友使用了这张优惠券，你也得到这张优惠券。你分享的越多，得到的优惠券机会越多。你可以到下方优惠券列表查看。</p>
+                                            <div>
+                                                <img src="/images/coupon-friend-detail/help-3.png" alt="" style={{ width: '100%' }}/>
                                             </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                 </div>
                             </div>

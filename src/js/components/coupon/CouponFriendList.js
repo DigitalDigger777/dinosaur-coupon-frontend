@@ -114,7 +114,7 @@ export default class CouponFriendList extends React.Component {
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
                                             <div className="container" style={{marginBottom: '0px', paddingLeft: '0px'}}>
                                                 <div className="one-half" style={{width: '89px'}}>
-                                                    <span className="label label-success" style={{backgroundColor: '#887650'}}>Friend's coupon</span>
+                                                    <span className="label label-success" style={{backgroundColor: '#887650'}}>朋友的券</span>
                                                 </div>
                                                 <div className="one-half last-column">
                                                     <p style={{marginLeft: '50px', width: '50px'}}>

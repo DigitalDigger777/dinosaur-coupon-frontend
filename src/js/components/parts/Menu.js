@@ -41,16 +41,15 @@ export default class Menu extends React.Component {
                 break;
         }
 
-        console.log('mmm', this.state);
     }
 
     render(){
 
         return (
             <div className="footer-menu footer-menu-light">
-                <Link to="/" style={{color:this.state.activeCouponColor}}><i className={`fa zan-coupon ${this.state.activeCoupon}`}></i>Coupons</Link>
-                <Link to="/stores" style={{color:this.state.activeStoresColor}}><i className={`fa zan-coupon ${this.state.activeStores}`}></i>Stores</Link>
-                <Link to="/messages" style={{color:this.state.activeMessagesColor}}><i className={`fa zan-coupon ${this.state.activeMessages}`}></i>Messages</Link>
+                <Link to="/" style={{color:this.state.activeCouponColor}}><i className={`fa zan-coupon ${this.state.activeCoupon}`}></i>优惠券</Link>
+                {/*<Link to="/stores" style={{color:this.state.activeStoresColor}}><i className={`fa zan-coupon ${this.state.activeStores}`}></i>Stores</Link>*/}
+                <Link to="/messages" style={{color:this.state.activeMessagesColor}}><i className={`fa zan-coupon ${this.state.activeMessages}`}></i>消息</Link>
                 {/*<Link to="/profile"><i className="fa zan-coupon"></i>Profile</Link>*/}
 
                 {/*<a href="main.html" className="zan-active" ><i className="fa zan-coupon"></i>Coupons</a>*/}

@@ -106,14 +106,14 @@ export default class CouponCouponsList extends React.Component {
                                                     <div>
                                                         {/*<img className="quote-image"*/}
                                                              {/*src={ JSON.parse(item.issued_coupon.source).headimgurl } width={'30px'} alt=""/>*/}
-                                                        <p><b>Received:</b> {JSON.parse(item.issued_coupon.source).nickname}</p>
+                                                        <p><b>收到: </b> {JSON.parse(item.issued_coupon.source).nickname}</p>
                                                     </div>
                                                 )
                                             }
                                             <hr style={{marginTop: '0px', marginBottom: '0px'}}/>
                                             <div className="container" style={{marginBottom: '0px', paddingLeft: '0px'}}>
                                                 <div className="one-half" style={{width: '89px'}}>
-                                                    {item.issued_coupon.isRedeemed && (<span className="label label-danger">redeemed</span>)}
+                                                    {item.issued_coupon.isRedeemed && (<span className="label label-danger">赎回</span>)}
                                                     {!item.issued_coupon.isRedeemed && (<p>&nbsp;</p>)}
                                                 </div>
                                                 <div className="one-half last-column">

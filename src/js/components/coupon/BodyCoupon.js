@@ -84,9 +84,9 @@ export default class BodyCoupon extends React.Component {
                             <div className="content">
                                 <div className="home-tabs">
                                     <Link to={'/'}
-                                          className={`activate-tab-2 ${this.state.tab == 'coupons' ? 'active-home-tab' : ''}`}>Coupons</Link>
+                                          className={`activate-tab-2 ${this.state.tab == 'coupons' ? 'active-home-tab' : ''}`}>优惠券</Link>
                                     <Link to={'/coupon/friend/list'}
-                                          className={`activate-tab-3 ${this.state.tab == 'friends' ? 'active-home-tab' : ''}`}>Friend's</Link>
+                                          className={`activate-tab-3 ${this.state.tab == 'friends' ? 'active-home-tab' : ''}`}>朋友的券</Link>
                                     <div className="clear"></div>
                                 </div>
                             </div>

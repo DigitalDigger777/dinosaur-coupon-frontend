@@ -99,8 +99,8 @@ export default class CouponDetail extends React.Component {
                                     </div>
                                     {!this.state.item.isRedeemed && this.state.daysLeft > 0 && (
                                         <div style={{textAlign:'center', padding: '20px'}}>
-                                            <button id="redeemButton" className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>Redeem</button>
-                                            <p style={{marginBottom: '0px'}}>This button is only for machant  use!</p>
+                                            <button id="redeemButton" className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>使用</button>
+                                            <p style={{marginBottom: '0px'}}>点击“使用”按钮，将会作废此优惠券。仅供商家使用！</p>
                                         </div>
                                     )}
 

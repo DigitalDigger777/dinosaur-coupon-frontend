@@ -90,6 +90,10 @@ export default class CouponScanDetail extends React.Component {
                                             { this.state.item.shopper.name }
                                         </h2>
                                         <h1 className="zan-red">{ this.state.item.title }</h1>
+                                        <div className="zan-container zan-container-detail">
+                                            <b>Days left: {this.state.daysLeft < 0 ? 'expired' : this.state.daysLeft}</b><br/>
+                                            <em>{this.state.startTime} - {this.state.expiredTime}</em>
+                                        </div>
                                     </div>
                                     <div className="zan-content">
                                         <div className="zan-title-coupon">
@@ -100,9 +104,8 @@ export default class CouponScanDetail extends React.Component {
                                         </div>
 
                                         <div className="zan-container zan-container-detail">
-                                            <h2>{ this.state.item.content }</h2>
-                                            <b>Days left: {this.state.daysLeft < 0 ? 'expired' : this.state.daysLeft}</b><br/>
-                                            <em>{this.state.startTime} - {this.state.expiredTime}</em>
+                                            <p>{ this.state.item.content }</p>
+
                                         </div>
                                         <div className="center-text">
                                             {/*<div className="zan-qr-code">*/}
@@ -113,37 +116,52 @@ export default class CouponScanDetail extends React.Component {
                                             {/*<div className="zan-coupon-number">172891</div>*/}
                                         </div>
 
-                                        <div className="zan-content-footer">
-                                            <div className="center-text">
-                                                Offer expires December 4, 2016. Offer not valid on Value Deals menu
-                                                items. Cannot be combined with any other promotional offer. One coupon
-                                                can be redeemed per guest per visit. No cash value.
-                                                <br/>Welcomed at part cipaning A&W Restaurants in Canada.
-                                            </div>
-                                        </div>
+                                        {/*<div className="zan-content-footer">*/}
+                                            {/*<div className="center-text">*/}
+                                                {/*Offer expires December 4, 2016. Offer not valid on Value Deals menu*/}
+                                                {/*items. Cannot be combined with any other promotional offer. One coupon*/}
+                                                {/*can be redeemed per guest per visit. No cash value.*/}
+                                                {/*<br/>Welcomed at part cipaning A&W Restaurants in Canada.*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
                                     </div>
 
+
+                                    <div className="zan-container">
+                                        <h2>如何得到这个优惠券</h2>
+
+                                        <p>1. 关注公众号"大温折扣通".</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-1.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>2. 进入公众号后点击“PPCG优惠券"</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-2.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>3. 点击优惠券</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-3.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>4. 点击朋友的券，找到这张优惠券</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-4.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>5. 点击右上方的。。。</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-5.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>6. 点击发送给朋友和分享到朋友圈，可以发送优惠券给微信朋友和朋友圈</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-6.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                        <p>7. 当朋友使用了这张优惠券，你也得到这张优惠券。你分享的越多，得到的优惠券机会越多。你可以到下方优惠券列表查看。</p>
+                                        <div>
+                                            <img src="/images/coupon-friend-scan/help-7.png" alt="" style={{ width: '100%' }}/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="content">
-                                <div className="zan-container-content">
-                                    <div className="zan-content-header">
-                                        <h2>
-                                            如何得到这个优惠券
-                                        </h2>
-                                    </div>
-                                    <div className="zan-content">
-
-                                        <div className="center-text">
-                                            1. 关注公众号"大温折扣通". <br/>
-                                            2. 进入公众号后点击“PPCG优惠券"
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
 
                             <div className="footer footer-light">
 

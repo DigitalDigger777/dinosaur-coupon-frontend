@@ -88,7 +88,6 @@ export default class MessageList extends React.Component {
             // if (this.state.item.logo) {
             //
             //     //logo = <img src={`${config.baseImagePath}logos/${this.state.item.logo}`} alt="img" />;
-            //
             // }
 
             return (
