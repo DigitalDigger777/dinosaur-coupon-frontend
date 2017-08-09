@@ -51,8 +51,8 @@ export default class BodyCoupon extends React.Component {
 
         if (user != null) {
 
-            this.state.user = user;
-            this.state.status = 'Get user';
+
+            this.state.status = 'Load...';
 
             //set here
             axios.post(config.baseUrl + 'coupon/consumer/rest/0', {
@@ -62,8 +62,11 @@ export default class BodyCoupon extends React.Component {
 
                 window.localStorage.setItem('user_id', result.data.id);
                 window.localStorage.setItem('user', JSON.stringify(user));
+                this.setState({
+                    user: user,
+                    status: 'Authorized user'
+                });
 
-                this.state.status = 'Authorized user';
             }).catch(error => {
                 console.log(error);
             });
