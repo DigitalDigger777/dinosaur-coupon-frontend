@@ -8,6 +8,8 @@ import PageLoader from '../parts/PageLoader';
 import Menu from '../parts/Menu';
 import Config from '../Config';
 import RedeemCouponPopup from '../popup/RedeemCouponPopup';
+import FacebookLogin from 'react-facebook-login';
+import FbGraph from 'fb-react-sdk';
 
 export default class CouponDetail extends React.Component {
 
@@ -48,6 +50,22 @@ export default class CouponDetail extends React.Component {
     redeem() {
 
         $('#redeemCouponPopup').modal('show');
+
+    }
+
+    share(response) {
+        console.log(response);
+        // everyauth.facebook
+        //     .appId('1933574493570796')
+        //     .appSecret('5b6105f1fcaec3fe07efda4ee9a02c1e')
+        //     .handleAuthCallbackError(function(req, res){
+        //         console.log('error', req, res);
+        //     })
+        //     .findOrCreateUser(function(session, accessToken, accessTokExtra, fbUserMetadata){
+        //         console.log(session, accessToken, accessTokExtra, fbUserMetadata);
+        //     })
+        //     .scope('publish_actions');
+            // .redirectPath('/');
     }
 
     render(){
@@ -101,6 +119,15 @@ export default class CouponDetail extends React.Component {
                                         <div style={{textAlign:'center', padding: '20px'}}>
                                             <button id="redeemButton" className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>使用</button>
                                             <p style={{marginBottom: '0px'}}>点击“使用”按钮，将会作废此优惠券。仅供商家使用！</p>
+                                             <FacebookLogin
+                                                appId="1933574493570796"
+                                                component={({onClick}) => {
+                                                    return <button id="shareButton" className="btn btn-info" onClick={ onClick } style={{ width: '90%', backgroundColor: '#003399', borderColor: '#003399'}}>Share</button>
+                                                }}
+                                                fields="name, email, picture"
+                                                callback={this.share}
+                                             />
+
                                         </div>
                                     )}
 
