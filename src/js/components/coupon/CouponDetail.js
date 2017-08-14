@@ -9,7 +9,22 @@ import Menu from '../parts/Menu';
 import Config from '../Config';
 import RedeemCouponPopup from '../popup/RedeemCouponPopup';
 import FacebookLogin from 'react-facebook-login';
+import {  ShareButtons, ShareCounts, generateShareIcon} from 'react-share';
 import FbGraph from 'fb-react-sdk';
+
+
+const {
+    FacebookShareButton,
+    GooglePlusShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+    RedditShareButton,
+} = ShareButtons;
 
 export default class CouponDetail extends React.Component {
 
@@ -119,15 +134,17 @@ export default class CouponDetail extends React.Component {
                                         <div style={{textAlign:'center', padding: '20px'}}>
                                             <button id="redeemButton" className="btn btn-info" onClick={ this.redeem } style={{ width: '90%', backgroundColor: '#887650', borderColor: '#887650'}}>使用</button>
                                             <p style={{marginBottom: '0px'}}>点击“使用”按钮，将会作废此优惠券。仅供商家使用！</p>
-                                             <FacebookLogin
-                                                appId="1933574493570796"
-                                                component={({onClick}) => {
-                                                    return <button id="shareButton" className="btn btn-info" onClick={ onClick } style={{ width: '90%', backgroundColor: '#003399', borderColor: '#003399'}}>Share</button>
-                                                }}
-                                                fields="name, email, picture"
-                                                callback={this.share}
-                                             />
-
+                                             {/*<FacebookLogin*/}
+                                                {/*appId="1933574493570796"*/}
+                                                {/*component={({onClick}) => {*/}
+                                                    {/*return <button id="shareButton" className="btn btn-info" onClick={ onClick } style={{ width: '90%', backgroundColor: '#003399', borderColor: '#003399'}}>Share</button>*/}
+                                                {/*}}*/}
+                                                {/*fields="name, email, picture"*/}
+                                                {/*callback={this.share}*/}
+                                             {/*/>*/}
+                                            <FacebookShareButton className="btn btn-info" url={window.location.href}>
+                                                share
+                                            </FacebookShareButton>
                                         </div>
                                     )}
 
